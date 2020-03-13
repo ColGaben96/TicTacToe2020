@@ -1,5 +1,7 @@
 package co.edu.unbosque.controller;
 
+import co.edu.unbosque.model.IA;
+
 /**
  * @author Gabriel Blanco Clase donde se ejecuta el programa
  */
