@@ -4,9 +4,6 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 /**
  * @author Gabriel Blanco Clase para usar Archivos. Usar leerArchivo() para leer
  *         archivos y escribirArchivo() para escribirlos. Suena redudante pero
@@ -26,6 +23,7 @@ public class GabenFile {
 
 	/**
 	 * Método para leer un archivo
+	 * 
 	 * @author Gabriel Blanco
 	 * @param ubicacion
 	 * @return
@@ -46,7 +44,9 @@ public class GabenFile {
 	}
 
 	/**
-	 * Método para sobreescribir un archivo. Va al final del archivo y escribe la nueva informacion.
+	 * Método para sobreescribir un archivo. Va al final del archivo y escribe la
+	 * nueva informacion.
+	 * 
 	 * @author Gabriel Blanco
 	 * @param linea
 	 * @param ubicacion
@@ -59,11 +59,18 @@ public class GabenFile {
 		printer.println(linea);
 		writer.close();
 	}
-	
+
 	/**
-	 * Método para escribir un archivo. <b>ADVERTENCIA!</b> Si esta pensando en usar este método
-	 * para sobreescribir un archivo, va a borrar el contenido de este e ingresar uno nuevo.
-	 * Usar <pre>sobreescribirArchivo(linea, ubicacion)</pre> en ese caso.
+	 * Método para escribir un archivo. <b>ADVERTENCIA!</b> Si esta pensando en usar
+	 * este método para sobreescribir un archivo, va a borrar el contenido de este e
+	 * ingresar uno nuevo. Usar
+	 * 
+	 * <pre>
+	 * sobreescribirArchivo(linea, ubicacion)
+	 * </pre>
+	 * 
+	 * en ese caso.
+	 * 
 	 * @author Gabriel Blanco
 	 * @param linea
 	 * @param ubicacion
@@ -79,6 +86,7 @@ public class GabenFile {
 
 	/**
 	 * Método para guardar un log con las excepciones.
+	 * 
 	 * @author Gabriel Blanco
 	 * @param linea
 	 * @throws IOException
@@ -87,53 +95,17 @@ public class GabenFile {
 		Date date = new Date();
 		SimpleDateFormat datef = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat date2f = new SimpleDateFormat("HH:mm:ss");
-		File myLog = new File(carpetaOutput+"/myLog "+datef.format(date)+".txt");
-		if(!myLog.exists()) {
-			escribirArchivo("An exception has occured on "+date2f.format(date)+"\n===================================\n"
-					+ linea+"\n"
-									+ "===================================\n", carpetaOutput+"/myLog "+datef.format(date)+".txt");
+		File myLog = new File(carpetaOutput + "/myLog " + datef.format(date) + ".txt");
+		if (!myLog.exists()) {
+			escribirArchivo(
+					"An exception has occured on " + date2f.format(date) + "\n===================================\n"
+							+ linea + "\n" + "===================================\n",
+					carpetaOutput + "/myLog " + datef.format(date) + ".txt");
 		} else {
-			sobreescribirArchivo("An exception has occured on "+date2f.format(date)+"\n===================================\n"
-					+ linea+"\n"
-									+ "===================================\n", carpetaOutput+"/myLog "+datef.format(date)+".txt");
-		}
-	}
-	
-	/**
-	 * Método para cargar un archivo via JFileChooser
-	 * @author Gabriel Blanco
-	 * @return
-	 * @throws IOException
-	 */
-	public String cargarArchivo() throws IOException {
-		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", ".txt");
-		chooser.setFileFilter(filter);
-		int returnVal = chooser.showOpenDialog(chooser);
-		if(returnVal == JFileChooser.APPROVE_OPTION) {
-			return leerArchivo(chooser.getSelectedFile().getAbsolutePath());
-		} else {
-			//No hace nada
-			return null;
-		}
-	}
-	
-	/**
-	 * Método para guardar un archivo via JFileChooser
-	 * @author Gabriel Blanco
-	 * @param linea
-	 * @throws IOException
-	 */
-	public void guardarArchivo(String linea) throws IOException {
-		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", ".txt");
-		chooser.setFileFilter(filter);
-		int returnVal = chooser.showSaveDialog(chooser);
-		if(returnVal == JFileChooser.APPROVE_OPTION) {
-			escribirArchivo(linea, chooser.getSelectedFile().getAbsolutePath());
-		} 
-		else {
-			//No hace nada
+			sobreescribirArchivo(
+					"An exception has occured on " + date2f.format(date) + "\n===================================\n"
+							+ linea + "\n" + "===================================\n",
+					carpetaOutput + "/myLog " + datef.format(date) + ".txt");
 		}
 	}
 
