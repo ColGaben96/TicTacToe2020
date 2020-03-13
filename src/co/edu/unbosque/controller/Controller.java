@@ -27,6 +27,7 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() throws Exception {
 		Consola();
+		//Estoy subiendo un cambio chimbo
 	}
 
 	/**
