@@ -7,7 +7,7 @@ public class APLMain {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
-		IA i = new IA();
+		IA ia = new IA();
 
 	}
 
