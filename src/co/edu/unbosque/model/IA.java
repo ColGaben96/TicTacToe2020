@@ -17,9 +17,7 @@ public class IA {
 
 	public boolean estanAtacando() {
 		
-		int tri1=0;
-		int tri2=0;
-		int tri3=0;
+	
 		int triquit=0;
 		
 		
@@ -186,9 +184,7 @@ public class IA {
 				// System.out.print("Fila : "+ i + " Columna :" + j + "=" + jugada[i][j] + "\n");
 			}
 		}
-		int tri1=0;
-		int tri2=0;
-		int tri3=0;
+	
 		int triquit=0;
 		
 		for(int y=0; y<=2 ; y++) {
