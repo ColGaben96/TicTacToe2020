@@ -6,7 +6,6 @@ public class IA {
 	
 	int jugada[][] = new int[3][3];
 	int tablero[][] = new int[3][3];
-	int triqui[] = new int[8];
 	int esquina[] = new int[4];
 	int lados[] = new int[4];
 	int centro = 5; // la variable centro guarda la posicion central del tablero
@@ -94,16 +93,6 @@ public class IA {
 		jugada[2][1] = 0;
 		jugada[2][2] = 0;
 
-		// Se alimenta el vector triqui con las posiones ganadoras de triqui
-		triqui[0] = 123;
-		triqui[1] = 456;
-		triqui[2] = 789;
-		triqui[3] = 159;
-		triqui[4] = 357;
-		triqui[5] = 147;
-		triqui[6] = 258;
-		triqui[7] = 369;
-
 		// Se alimenta el vector esquina con las posiones esquinas del tablero
 		esquina[0] = 1;
 		esquina[1] = 3;
@@ -114,7 +103,7 @@ public class IA {
 		lados[0] = 2;
 		lados[1] = 4;
 		lados[2] = 6;
-		lados[3] = 8;
+		//lados[3] = 8;
 
 		Scanner sc = new Scanner(System.in);
 		// ============================================= La primera jugada	// =============================================
