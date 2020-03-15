@@ -163,17 +163,6 @@ public class IA {
 
 		System.out.print("La posicion es: " + posicion + " La estrategia es: " + estrategia+ "\n");
 		
-		for (int i = 0; i <= 2; i++) {
-			for (int j = 0; j <= 2; j++) {
-
-				if (tablero[i][j] == posicion) {
-					jugada[i][j] = 1;
-				}
-
-				// System.out.print("Fila : "+ i + " Columna :" + j + "=" + jugada[i][j] + "\n");
-			}
-		}
-	
 		int triquit=0;
 		
 		for(int y=0; y<=2 ; y++) {
