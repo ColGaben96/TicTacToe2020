@@ -1,0 +1,34 @@
+An exception has occured on 13:08:36
+===================================
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:47)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:30)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:12)
+
+===================================
+
+An exception has occured on 13:08:38
+===================================
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:47)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:30)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:12)
+
+===================================
+
+An exception has occured on 13:08:39
+===================================
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:47)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:30)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:12)
+
+===================================
+
