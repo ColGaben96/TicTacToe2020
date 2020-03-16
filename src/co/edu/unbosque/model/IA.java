@@ -2,36 +2,38 @@ package co.edu.unbosque.model;
 
 import java.util.Scanner;
 
-/*
-         Se enumeran las posiciones del tablero de triqui de la siguente manera:
-         
-         | 1 |  | 2 |  | 3 |        
-         | 4 |  | 5 |  | 6 | 
-         | 7 |  | 8 |  | 9 | 
-         
-         Cuando el jugador da clic en uno del los botones de la posicion le envia el nï¿½mero de posicion a esta clase (con interfaz grafica)
-    
-         La celdas esquineras son: 1,3,7,9 estos valores se guardan en el vector esquina[][]
-         la celdas de los lados son: 2,4,6,8 estos valores se guardan en el vector lado[][]
-         la celda central es la numero 5 este valor se guarda en la variable centro
-         las esquinas vecinas a los lados son: lado 2 --> celdas 1,3 lado 4 --> celdas 1,7 lado 6 --> celdas 3,9 lado 8 --> celdas 7,9
-         Estos valores se utlizan para seleccionar la estrategia a seguir. 
-          
-         Se tienen tres estrategias de defensa y una estrategia de ataque.
-         
-         Estrategia de defensa:
-         
-         1.si el jugador juega en una celda esquinera, la cpu debe seleccionar el centro del tablero
-         2.Si el jugador selecciona una casilla de lado del tablero la cpu puede seleccioanr cualquier esquina vecina del lado seleccionado
-         3.El programa debe identificar las filas o columnas en las que el jugador pueda hacer triqui y jugar para evitarlo
-         
-         Estrategia de ataque:
-         
-         1.Estrategia de ataque: Consiste en identifcar las filas o columnas en la que la cpu puede completar el triqui.para esto se utliza el
-         metodo llamado estanAtacando().
+/**
+ * @author Carlos Albarracín & Gabriel Blanco
+ * 
+ * Se enumeran las posiciones del tablero de triqui de la siguiente manera:
+
+| 1 |  | 2 |  | 3 |
+| 4 |  | 5 |  | 6 |
+| 7 |  | 8 |  | 9 |
+
+Cuando el jugador da clic en uno de los botones de la posición le envia el número de posición a esta clase (con interfaz gráfica)
+
+La celdas esquineras son: 1,3,7,9 estos valores se guardan en el vector esquina[][]
+la celdas de los lados son: 2,4,6,8 estos valores se guardan en el vector lado[][]
+la celda central es la numero 5 este valor se guarda en la variable centro
+las esquinas vecinas a los lados son: lado 2 --> celdas 1,3 lado 4 --> celdas 1,7 lado 6 --> celdas 3,9 lado 8 --> celdas 7,9
+Estos valores se utlizan para seleccionar la estrategia a seguir.
+
+Se tienen tres estrategias de defensa y una estrategia de ataque.
+
+Estrategia de defensa:
+
+1.si el jugador juega en una celda esquinera, la cpu debe seleccionar el centro del tablero
+2.Si el jugador selecciona una casilla de lado del tablero la cpu puede seleccioanr cualquier esquina vecina del lado seleccionado
+3.El programa debe identificar las filas o columnas en las que el jugador pueda hacer triqui y jugar para evitarlo
+
+Estrategia de ataque:
+
+1.Estrategia de ataque: Consiste en identifcar las filas o columnas en la que la cpu puede completar el triqui.para esto se utliza el
+metodo llamado estanAtacando().
+
+ *
  */
-
-
 public class IA {
 	
 	int jugada[][] = new int[3][3];
@@ -45,15 +47,17 @@ public class IA {
 	int gameOver=0;
 	int jugoCpu=0;  // Si es cero la cpu no ha jugado
 
+	/**
+	 * @author Carlos Albarracín
+	 * @return
+	 * Estos bucles  revisan todas las columnas y filas en donde exista la posibilidad de que la cpu haga triqui
+	 * Si la suma de las filas es igual a 4 indica que hay posibilidades de hacer triqui.Esto teniendo encuenta que cuando juega la cpu coloca 
+	 * un dos en la posicion de la matriz jugada
+	 */
 	public boolean estanAtacando() {
 		
 	
 		int triquit=0;
-	/*	
-	   Estos bucles  revisan todas las columnas y filas en donde exista la posibilidad de que la cpu haga triqui
-	   Si la suma de las filas es igual a 4 indica que hay posibilidades de hacer triqui.Esto teniendo encuenta que cuando juega la cpu coloca 
-	   un dos en la posicion de la matriz jugada
-	 */
 		for(int y=0; y<=2 ; y++) {
 			triquit=0;
 			for(int x=0; x<=2 ; x++) {
@@ -104,9 +108,13 @@ public class IA {
 		return false;
 	}
 
+	/**
+	 * @author Carlos Albarracín
+	 */
 	public void defender() {
 		
-		
+		//TODO: Cambiar a método int[][] para responder las posiciones.
+		//TODO: Pasar a parámetros
 
 		// Se almacena las pociones del tablero del triqui en la matriz tablero.
 		tablero[0][0] = 1;
