@@ -205,16 +205,24 @@ public class IA {
 		if (estrategia == 2) {
 			switch (posicion) {
 			case 2:
+				jugada[0][0] = 2;
 				posicionCpu = 1;
+				System.out.print("la computadora juego la posición "+ posicionCpu  );
 				break;
 			case 4:
+				jugada[2][0] = 2;
 				posicionCpu = 7;
+				System.out.print("la computadora juego la posición "+ posicionCpu  );
 				break;
 			case 6:
+				jugada[0][2] = 2;
 				posicionCpu = 3;
+				System.out.print("la computadora juego la posición "+ posicionCpu  );
 				break;
 			case 8:
+				jugada[2][2] = 2;
 				posicionCpu = 9;
+				System.out.print("la computadora juego la posición "+ posicionCpu  );
 				break;
 
 			}
@@ -425,6 +433,28 @@ public class IA {
 			}
 		}// fin del ciclo
 		
+	   //Diagonal derecha evalua si puede haber triqui
+		
+		triquit= 0;
+		if(jugoCpu==0) {
+		    triquit= triquit + jugada[0][0] + jugada[1][1] + jugada[2][2]; 
+		    if(triquit==2) {
+		    	if(jugada[0][0] == 0) { jugada[0][0]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[0][0]);}
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[1][1]);}
+		    	if(jugada[2][2] == 0) { jugada[2][2]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[2][2]);}
+		    }
+		}
+		//Diagonal Izquierda evalua si puede haber triqui
+		triquit= 0;
+		if(jugoCpu==0) {
+		    triquit=triquit + jugada[0][2] + jugada[1][1] + jugada[2][0]; 
+		    if(triquit==2) {
+		    	if(jugada[0][2] == 0) { jugada[0][2]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[0][2]); }
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[1][1]); }
+		    	if(jugada[2][0] == 0) { jugada[2][0]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[2][0]); }
+		    }
+		}
+		
 		//================ Si no ha jugado la cpu realiza su mejor jugada donde exista una fila o columna que haya jugado ==================== 
 		if(jugoCpu == 0) {
 			
@@ -473,6 +503,8 @@ public class IA {
 				}
 			}
 		} // fin jugada cpu
+		
+		
 		
 //      ============================================= La cuarta jugada =============================================
 		
@@ -544,6 +576,26 @@ public class IA {
 				}
 			}
 		}// fin del ciclo
+		
+		
+		triquit= 0;
+		if(jugoCpu==0) {
+		    triquit+= jugada[0][0] + jugada[1][1] + jugada[2][2]; 
+		    if(triquit==2) {
+		    	if(jugada[0][0] == 0) { jugada[0][0]=2; jugoCpu=1; }
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; }
+		    	if(jugada[2][2] == 0) { jugada[2][2]=2; jugoCpu=1; }
+		    }
+		}
+		//Diagonal Izquierda evalua si puede haber triqui
+		if(jugoCpu==0) {
+		    triquit+= jugada[0][2] + jugada[1][1] + jugada[2][0]; 
+		    if(triquit==2) {
+		    	if(jugada[0][2] == 0) { jugada[0][2]=2; jugoCpu=1; }
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; }
+		    	if(jugada[2][0] == 0) { jugada[2][0]=2; jugoCpu=1; }
+		    }
+		}
 		
 		//================ Si no ha jugado la cpu realiza su mejor jugada donde exista una fila o columna que haya jugado ==================== 
 		if(jugoCpu == 0) {
