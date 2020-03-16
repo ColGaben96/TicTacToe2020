@@ -9,6 +9,7 @@ import java.io.StringWriter;
 
 import javax.swing.JOptionPane;
 
+import co.edu.unbosque.model.IA;
 import co.edu.unbosque.model.Mundo;
 import co.edu.unbosque.view.View;
 
@@ -89,6 +90,10 @@ public class Controller implements ActionListener {
 	/*
 	 * TODO: Poner los métodos a probar aqui
 	 */
+	public void IA(int holi) {
+		IA ia =new IA();
+		ia.defender(holi);
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {

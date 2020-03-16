@@ -70,9 +70,10 @@ public class IA {
 				for(int k=0; k<=2 ; k++) {
 					if(jugada[k][y] == 0 && jugoCpu == 0) {
 						jugada[k][y]=2;
-						System.out.print("Triqui Ganï¿½!!!!!! \n");
+						System.out.print("Triqui Ganó \n");
 						gameOver=1;
 						jugoCpu=1;
+						return true;
 					}else {
 						triquit=0;
 					}
@@ -93,9 +94,10 @@ public class IA {
 				for(int yy=0; yy<=2 ; yy++) {
 					if(jugada[x][yy] == 0 && jugoCpu == 0 ) {
 						jugada[x][yy]=2;
-						System.out.print("Triqui Ganï¿½!!!!!! \n");
+						System.out.print("Triqui Ganó \n");
 						gameOver=1;
 						jugoCpu=1;
+						return true;
 					}else {
 						triquit=0;
 					}
@@ -111,10 +113,10 @@ public class IA {
 	/**
 	 * @author Carlos Albarracín
 	 */
-	public void defender() {
+	public void defender(int posicion) {
 		
 		//TODO: Cambiar a método int[][] para responder las posiciones.
-		//TODO: Pasar a parámetros
+		//TODO: Pasar todas las variables a parámetros
 
 		// Se almacena las pociones del tablero del triqui en la matriz tablero.
 		tablero[0][0] = 1;
