@@ -67,14 +67,6 @@ public class IA {
 					if(jugada[k][y] == 0 && jugoCpu == 0) {
 						jugada[k][y]=2;
 						System.out.print("Triqui Gané!!!!!! \n");
-						/*
-						for (int a = 0; a <= 2; a++) {
-							for (int b = 0;b <= 2; b++) {
-
-								 System.out.print("Fila : "+ a + " Columna :" + b + "=" + jugada[a][b] + "\n");
-							}			
-						}
-						*/
 						gameOver=1;
 						jugoCpu=1;
 					}else {
@@ -98,14 +90,6 @@ public class IA {
 					if(jugada[x][yy] == 0 && jugoCpu == 0 ) {
 						jugada[x][yy]=2;
 						System.out.print("Triqui Gané!!!!!! \n");
-						/*
-						for (int a = 0; a <= 2; a++) {
-							for (int b = 0; b <= 2; b++) {
-
-								 System.out.print("Fila : "+ a + " Columna :" + b + "=" + jugada[a][b] + "\n");
-							}			
-						}
-						*/
 						gameOver=1;
 						jugoCpu=1;
 					}else {
