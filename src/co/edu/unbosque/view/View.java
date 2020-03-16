@@ -9,17 +9,20 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * @author Gabriel Blanco
+ * @author Gabriel Blanco & Ricardo Sanchez
  * Clase para definir la ventana principal
  */
 public class View extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private Dialogos dialogos = new Dialogos();
+	private PanelTablero paneltablero = new PanelTablero();
+	private PanelBoton panelboton = new PanelBoton();
+	
 	
 	/**
 	 * Método para iniciar la ventana principal
-	 * @author Gabriel Blanco
+	 * @author Gabriel Blanco 
 	 * @param control
 	 */
 	public void iniciar(Controller control) {
@@ -29,24 +32,26 @@ public class View extends JFrame {
 	}
 	/**
 	 * Método para cargar la configuración de la ventana principal
-	 * @author Gabriel Blanco
+	 * @author Gabriel Blanco & Ricardo Sanchez
 	 */
 	public void cargar() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800,600);
-		setTitle("Insert Title Here");
+		setTitle("tIctActoe");
+		setBackground(SystemColor.activeCaption);
 		setLocationRelativeTo(null);
-		setLayout(new BorderLayout());
+		setResizable(false);
 		setVisible(true);
 	}
 	
 	/**
 	 * Método para añadir los componentes de la ventana principal
-	 * @author Gabriel Blanco
+	 * @author Gabriel Blanco & Ricardo Sanchez 
 	 */
 	public void addComponentes() {
 		//TODO: Añadir aquí los componentes
-		
+		add(paneltablero);
+		add(panelboton);
 	}
 	
 	/**
@@ -57,8 +62,17 @@ public class View extends JFrame {
 	 */
 	public void escucharComponentes(Controller control) {
 		//TODO: Poner aquí los ActionListener y comentar a que panel pertenece
+		/*
+		 * PanelBoton
+		 */
+		panelboton.getJuego().addActionListener(control);
 	}
 	
+	/**
+	 * @author Gabriel Blanco
+	 * @return
+	 * @throws IOException
+	 */
 	public String cargarArchivo() throws IOException {
 		String path = "";
 		JFileChooser chooser = new JFileChooser();
@@ -76,7 +90,7 @@ public class View extends JFrame {
 	
 	/**
 	 * Método para guardar un archivo via JFileChooser
-	 * @author Gabriel Blanco
+	 * @author Gabriel Blanco 
 	 * @param linea
 	 * @throws IOException
 	 */
@@ -95,7 +109,12 @@ public class View extends JFrame {
 		return path;
 	}
 
+	/**
+	 * @author Ricardo Sanchez
+	 * @return
+	 */
 	public Dialogos getDialogos() {
 		return dialogos;
 	}
+	
 }
