@@ -5,13 +5,15 @@ import co.edu.unbosque.model.persistence.GabenProperties;
 
 /**
  * @author Gabriel Blanco
- * Clase "multitoma" donde se define la solución de la problemática
+ * Clase "multitoma" donde se define la soluciï¿½n de la problemï¿½tica
  */
 public class Mundo {
 	private IA ia = new IA();
 	private TicTacToe tictactoe = new TicTacToe();
 	private GabenFile archivo = new GabenFile();
 	private GabenProperties propiedad = new GabenProperties();
+	private TicTacToe tictactoe = new TicTacToe();
+	private IA ia = new IA();
 
 	public GabenFile getArchivo() {
 		return archivo;
@@ -21,13 +23,12 @@ public class Mundo {
 		return propiedad;
 	}
 
-	public IA getIa() {
-		return ia;
-	}
-
 	public TicTacToe getTictactoe() {
 		return tictactoe;
 	}
-	
+
+	public IA getIa() {
+		return ia;
+	}
 	
 }

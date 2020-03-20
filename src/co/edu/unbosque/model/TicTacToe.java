@@ -23,4 +23,21 @@ public class TicTacToe {
 	public String definirGanador() {
 		return null;
 	}
+
+	public boolean isTurno() {
+		return turno;
+	}
+
+	public void setTurno(boolean turno) {
+		this.turno = turno;
+	}
+
+	public int[][] getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(int[][] posicion) {
+		this.posicion = posicion;
+	}
+	
 }
