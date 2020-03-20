@@ -10,6 +10,8 @@ import co.edu.unbosque.model.persistence.GabenProperties;
 public class Mundo {
 	private GabenFile archivo = new GabenFile();
 	private GabenProperties propiedad = new GabenProperties();
+	private TicTacToe tictactoe = new TicTacToe();
+	private IA ia = new IA();
 
 	public GabenFile getArchivo() {
 		return archivo;
@@ -18,4 +20,13 @@ public class Mundo {
 	public GabenProperties getPropiedad() {
 		return propiedad;
 	}
+
+	public TicTacToe getTictactoe() {
+		return tictactoe;
+	}
+
+	public IA getIa() {
+		return ia;
+	}
+	
 }
