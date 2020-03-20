@@ -45,7 +45,7 @@ public class IA {
 	private int posicion = 0;
 	private int posicionCpu = 0;
 	private int gameOver=0;
-	private int jugoCpu=0;  // Si es cero la cpu no ha jugado
+	private int jugoCpu=0; // Si es cero la cpu no ha jugado
 
 	/**
 	 * @author Carlos Albarracín
