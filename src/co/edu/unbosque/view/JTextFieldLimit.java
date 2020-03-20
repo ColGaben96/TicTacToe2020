@@ -5,28 +5,37 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * @author https://www.tutorialspoint.com/how-can-we-limit-the-number-of-characters-inside-a-jtextfield-in-java
+ * @author https://www.rgagnon.com/javadetails/java-0198.html
  *
  */
-class JTextFieldLimit extends PlainDocument {
-	   /**
+public class JTextFieldLimit extends PlainDocument {
+	  /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int limit;
-	   JTextFieldLimit(int limit) {
-	      super();
-	      this.limit = limit;
+	  // optional uppercase conversion
+	  private boolean toUppercase = false;
+	  
+	  JTextFieldLimit(int limit) {
+	   super();
+	   this.limit = limit;
 	   }
-	   JTextFieldLimit(int limit, boolean upper) {
-	      super();
-	      this.limit = limit;
+	   
+	  JTextFieldLimit(int limit, boolean upper) {
+	   super();
+	   this.limit = limit;
+	   toUppercase = upper;
 	   }
-	   public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-	      if (str == null)
-	         return;
-	      if ((getLength() + str.length()) <= limit) {
-	         super.insertString(offset, str, attr);
-	      }
+	 
+	  public void insertString
+	    (int offset, String  str, AttributeSet attr)
+	      throws BadLocationException {
+	   if (str == null) return;
+
+	   if ((getLength() + str.length()) <= limit) {
+	     if (toUppercase) str = str.toUpperCase();
+	     super.insertString(offset, str, attr);
+	     }
 	   }
 	}
