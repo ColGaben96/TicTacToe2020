@@ -100,11 +100,11 @@ public class Controller implements ActionListener {
 			// TODO: Ingresar aquí las interacciones con Mundo
 			boolean jugando = true;
 			while (jugando) {
-				if (view.getPaneltablero().getPos11().getText().equals("x") && view.getPaneltablero().getPos11().getText().equals("X")) {
-					view.getPaneltablero().getPos11().setText("X");
+				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("x") && view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")) {
+					view.getPanelJuego().getPanelTablero().getPos11().setText("X");
 				}
-				if (!view.getPaneltablero().getPos11().getText().equals("x") && !view.getPaneltablero().getPos11().getText().equals("X")) {
-					view.getPaneltablero().getPos11().setText("");
+				if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")) {
+					view.getPanelJuego().getPanelTablero().getPos11().setText("");
 					view.getDialogos().output("Error","El valor ingresa debe ser X " , JOptionPane.ERROR_MESSAGE);
 				}
 				
