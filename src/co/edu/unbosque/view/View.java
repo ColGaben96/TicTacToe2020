@@ -5,7 +5,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import co.edu.unbosque.controller.Controller;
 
-import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -18,6 +17,8 @@ public class View extends JFrame {
 	private Dialogos dialogos = new Dialogos();
 	private PanelTablero paneltablero = new PanelTablero();
 	private PanelBoton panelboton = new PanelBoton();
+	private ImageIcon img = new ImageIcon("./docs/Lib/cuadriculado2.png");
+	private JLabel background;
 	
 	
 	/**
@@ -29,6 +30,7 @@ public class View extends JFrame {
 		cargar();
 		addComponentes();
 		escucharComponentes(control);
+		this.validate();
 	}
 	/**
 	 * Método para cargar la configuración de la ventana principal
@@ -38,10 +40,13 @@ public class View extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800,600);
 		setTitle("tIctActoe");
-		setBackground(SystemColor.activeCaption);
+		//setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
+		//Increible, pero se puede ingresar como un JLabel
+    	background = new JLabel("", img, JLabel.CENTER);
+    	background.setBounds(0, 0, 800, 600);
 	}
 	
 	/**
@@ -50,6 +55,7 @@ public class View extends JFrame {
 	 */
 	public void addComponentes() {
 		//TODO: Añadir aquí los componentes
+		add(background);
 		add(paneltablero);
 		add(panelboton);
 	}

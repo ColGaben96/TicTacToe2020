@@ -1,5 +1,4 @@
 package co.edu.unbosque.view;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -18,7 +17,7 @@ public class PanelTablero extends JPanel {
     private JTextField pos23 = new JTextField(); 
     private JTextField pos31 = new JTextField(); 
     private JTextField pos32 = new JTextField(); 
-    private JTextField pos33 = new JTextField(); 
+    private JTextField pos33 = new JTextField();
     //private Icon icono;
    // private ImageIcon imagen;
     
@@ -41,47 +40,62 @@ public class PanelTablero extends JPanel {
     public void cargar() throws Exception {
     	setLayout(null);
     	setBounds(0,0,800,500);
-    	Image img = ImageIO.read(new File("./docs/Lib/cuadriculado.jpg"));
-    	setBackground(SystemColor.activeCaption);
     	
-    	//Font fuente = new Font(Font.BOLD,3,20);
+    	Font bradley = Font.createFont(Font.TRUETYPE_FONT, new File("./docs/Lib/BRADHITC.TTF")).deriveFont(Font.BOLD, 100f);
     	
 		pos11.setBounds(64, 27, 162, 111);
 		pos11.setForeground(Color.black);
 		pos11.setBackground(Color.white);
-		//pos11.setFont(fuente);
+		pos11.setHorizontalAlignment(JTextField.CENTER);
+		pos11.setFont(bradley);
 		
 		pos12.setBounds(314, 27, 162, 111);
 		pos12.setForeground(Color.black);
 		pos12.setBackground(Color.white);
+		pos12.setHorizontalAlignment(JTextField.CENTER);
+		pos12.setFont(bradley);
 		
 		pos13.setBounds(554, 27, 162, 111);
 		pos13.setForeground(Color.black);
 		pos13.setBackground(Color.white);
+		pos13.setHorizontalAlignment(JTextField.CENTER);
+		pos13.setFont(bradley);
 		
 		pos21.setBounds(64, 185, 162, 111);
 		pos21.setForeground(Color.black);
 		pos21.setBackground(Color.white);
+		pos21.setHorizontalAlignment(JTextField.CENTER);
+		pos21.setFont(bradley);
 		
 		pos22.setBounds(314, 185, 162, 111);
 		pos22.setForeground(Color.black);
 		pos22.setBackground(Color.white);
+		pos22.setHorizontalAlignment(JTextField.CENTER);
+		pos22.setFont(bradley);
 		
 		pos23.setBounds(554, 185, 162, 111);
 		pos23.setForeground(Color.black);
 		pos23.setBackground(Color.white);
+		pos23.setHorizontalAlignment(JTextField.CENTER);
+		pos23.setFont(bradley);
 		
 		pos31.setBounds(64, 343, 162, 111);
 		pos31.setForeground(Color.black);
 		pos31.setBackground(Color.white);
+		pos31.setHorizontalAlignment(JTextField.CENTER);
+		pos31.setFont(bradley);
 		
 		pos32.setBounds(314, 343, 162, 111);
 		pos32.setForeground(Color.black);
 		pos32.setBackground(Color.white);
+		pos32.setHorizontalAlignment(JTextField.CENTER);
+		pos32.setFont(bradley);
 		
 		pos33.setBounds(554, 343, 162, 111);
 		pos33.setForeground(Color.black);
 		pos33.setBackground(Color.white);
+		pos33.setHorizontalAlignment(JTextField.CENTER);
+		pos33.setFont(bradley);
 		
 		//imagen = new ImageIcon(getClass().getResource(new File("./docs/Lib/cuadriculado.jpg")));
 		//icono = new ImageIcon(imagen.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
@@ -156,6 +170,16 @@ public class PanelTablero extends JPanel {
 	public void setPos33(JTextField pos33) {
 		this.pos33 = pos33;
 	}
+
+	public JTextField getPos11() {
+		return pos11;
+	}
+
+	public void setPos11(JTextField pos11) {
+		this.pos11 = pos11;
+	}
+	
+	
 	
 	
 	

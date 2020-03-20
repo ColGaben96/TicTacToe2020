@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 /**
  * @author Ricardo Sanchez
  *
@@ -28,11 +29,12 @@ public class PanelBoton extends JPanel {
 		
 		setLayout(null);
 		setBounds(700,500 , 100, 100);
-		setBackground(SystemColor.activeCaption);
+		Font fixed = Font.createFont(Font.TRUETYPE_FONT, new File("./docs/Lib/segoeui.ttf")).deriveFont(15f);
 		juego.setBounds(350,500 , 100, 50);
-		juego.setBackground(new Color(240,240,240));
+		juego.setBackground(new Color(255,255,255));
 		juego.setForeground(Color.black);
 		juego.setActionCommand(OPERAR);
+		juego.setFont(fixed);
 		
 	}
 	
