@@ -31,6 +31,8 @@ public class View extends JFrame {
 		addComponentes();
 		escucharComponentes(control);
 		this.validate();
+		this.getDialogos().output("Advertencia", "Pasa el mouse por debajo de la casilla central inferior para que aparezca el botón de juego\n"
+				+ "Nos disculpamos por el bug", JOptionPane.WARNING_MESSAGE);
 	}
 	/**
 	 * Método para cargar la configuración de la ventana principal

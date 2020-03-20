@@ -35,7 +35,6 @@ public class PanelBoton extends JPanel {
 		juego.setForeground(Color.black);
 		juego.setActionCommand(OPERAR);
 		juego.setFont(fixed);
-		
 	}
 	
 	/**
