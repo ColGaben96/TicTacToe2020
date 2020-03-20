@@ -1,5 +1,4 @@
 An exception has occured on 13:08:36
-===================================
 java.lang.NumberFormatException: null
 	at java.lang.Integer.parseInt(Integer.java:542)
 	at java.lang.Integer.parseInt(Integer.java:615)
@@ -29,6 +28,27 @@ java.lang.NumberFormatException: For input string: ""
 	at co.edu.unbosque.controller.Controller.Consola(Controller.java:47)
 	at co.edu.unbosque.controller.Controller.<init>(Controller.java:30)
 	at co.edu.unbosque.controller.APLMain.main(APLMain.java:12)
+=======
+An exception has occured on 15:42:31
+===================================
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:47)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:29)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
 
 ===================================
 
+An exception has occured on 17:27:26
+===================================
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:47)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:29)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+Solved
