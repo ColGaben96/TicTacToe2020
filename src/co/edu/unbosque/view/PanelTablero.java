@@ -132,8 +132,6 @@ public class PanelTablero extends JPanel {
 		add(pos31);
 		add(pos32);
 		add(pos33);
-		
-		
 	}
 	
 	/**
