@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 import javax.swing.*;
+import javax.swing.text.Document;
+
 import java.awt.*;
 import java.io.File;
 /**
@@ -31,6 +33,15 @@ public class PanelTablero extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    	pos11.validate();
+    	pos12.validate();
+    	pos13.validate();
+    	pos21.validate();
+    	pos22.validate();
+    	pos23.validate();
+    	pos31.validate();
+    	pos32.validate();
+    	pos33.validate();
     }
     
     /**
@@ -48,6 +59,7 @@ public class PanelTablero extends JPanel {
 		pos11.setBackground(Color.white);
 		pos11.setHorizontalAlignment(JTextField.CENTER);
 		pos11.setFont(bradley);
+		//pos11.setDocument((Document) new JTextField(1));
 		
 		pos12.setBounds(314, 27, 162, 111);
 		pos12.setForeground(Color.black);

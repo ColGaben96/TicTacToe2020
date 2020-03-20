@@ -38,3 +38,264 @@ java.lang.IllegalArgumentException: horizontalAlignment
 
 ===================================
 
+An exception has occured on 12:14:18
+===================================
+java.lang.IllegalArgumentException: horizontalAlignment
+	at java.desktop/javax.swing.JLabel.checkHorizontalKey(JLabel.java:594)
+	at java.desktop/javax.swing.JLabel.setHorizontalAlignment(JLabel.java:748)
+	at co.edu.unbosque.view.View.iniciar(View.java:37)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:15:15
+===================================
+java.lang.IllegalArgumentException: horizontalAlignment
+	at java.desktop/javax.swing.JLabel.checkHorizontalKey(JLabel.java:594)
+	at java.desktop/javax.swing.JLabel.setHorizontalAlignment(JLabel.java:748)
+	at co.edu.unbosque.view.View.iniciar(View.java:37)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:46:56
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:47:26
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/javax.swing.JRootPane$1.addLayoutComponent(JRootPane.java:507)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:47:43
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/javax.swing.JRootPane$1.addLayoutComponent(JRootPane.java:507)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:75)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:48:04
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/javax.swing.JRootPane$1.addLayoutComponent(JRootPane.java:507)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:75)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:48:34
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/javax.swing.JRootPane$1.addLayoutComponent(JRootPane.java:507)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:75)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:49:42
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:49:59
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 12:50:17
+===================================
+java.lang.IllegalArgumentException: cannot add to layout: constraint must be a string (or null)
+	at java.desktop/java.awt.BorderLayout.addLayoutComponent(BorderLayout.java:431)
+	at java.desktop/java.awt.Container.addImpl(Container.java:1152)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 13:03:43
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:489)
+	at co.edu.unbosque.view.View.addComponentes(View.java:75)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 13:03:55
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:489)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 13:05:49
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:489)
+	at co.edu.unbosque.view.View.addComponentes(View.java:77)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 13:08:46
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 13:08:59
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:489)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+
+An exception has occured on 13:09:09
+===================================
+java.lang.IllegalArgumentException: illegal component position
+	at java.desktop/java.awt.Container.addImpl(Container.java:1111)
+	at java.desktop/java.awt.Container.add(Container.java:1029)
+	at java.desktop/javax.swing.JFrame.addImpl(JFrame.java:553)
+	at java.desktop/java.awt.Container.add(Container.java:489)
+	at co.edu.unbosque.view.View.addComponentes(View.java:76)
+	at co.edu.unbosque.view.View.iniciar(View.java:43)
+	at co.edu.unbosque.controller.Controller.GUI(Controller.java:79)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:31)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+

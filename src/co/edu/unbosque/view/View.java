@@ -4,7 +4,11 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import co.edu.unbosque.controller.Controller;
+import marvin.gui.MarvinImagePanel;
+import marvin.image.MarvinImage;
+import marvin.io.MarvinImageIO;
 
+import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -15,10 +19,12 @@ public class View extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private Dialogos dialogos = new Dialogos();
-	private PanelTablero paneltablero = new PanelTablero();
-	private PanelBoton panelboton = new PanelBoton();
-	private ImageIcon img = new ImageIcon("./docs/Lib/cuadriculado2.png");
-	private JLabel background;
+	private PanelJuego panelJuego = new PanelJuego();
+	//private BufferedImage img;
+	private MarvinImage img;
+	private MarvinImagePanel marvinPanel = new MarvinImagePanel();
+	//private ImageIcon image;
+	//private JLabel background;
 	
 	
 	/**
@@ -27,28 +33,32 @@ public class View extends JFrame {
 	 * @param control
 	 */
 	public void iniciar(Controller control) {
-		cargar();
+		try {
+			cargar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		addComponentes();
 		escucharComponentes(control);
-		this.validate();
-		this.getDialogos().output("Advertencia", "Pasa el mouse por debajo de la casilla central inferior para que aparezca el botón de juego\n"
+		//this.validate();
+		/*this.getDialogos().output("Advertencia", "Pasa el mouse por debajo de la casilla central inferior para que aparezca el botón de juego\n"
 				+ "Nos disculpamos por el bug", JOptionPane.WARNING_MESSAGE);
+				*/
 	}
 	/**
 	 * Método para cargar la configuración de la ventana principal
 	 * @author Gabriel Blanco & Ricardo Sanchez
 	 */
-	public void cargar() {
+	public void cargar() throws Exception {
+		img = MarvinImageIO.loadImage("./docs/Lib/cuadriculado2.png");
+		marvinPanel.setImage(img);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800,600);
 		setTitle("tIctActoe");
-		//setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		//Increible, pero se puede ingresar como un JLabel
-    	background = new JLabel("", img, JLabel.CENTER);
-    	background.setBounds(0, 0, 800, 600);
 	}
 	
 	/**
@@ -57,9 +67,8 @@ public class View extends JFrame {
 	 */
 	public void addComponentes() {
 		//TODO: Añadir aquí los componentes
-		add(background);
-		add(paneltablero);
-		add(panelboton);
+		add(marvinPanel);
+		add(panelJuego);
 	}
 	
 	/**
@@ -73,7 +82,7 @@ public class View extends JFrame {
 		/*
 		 * PanelBoton
 		 */
-		panelboton.getJuego().addActionListener(control);
+		panelJuego.getPanelBoton().getJuego().addActionListener(control);
 	}
 	
 	/**
