@@ -299,3 +299,14 @@ java.lang.IllegalArgumentException: illegal component position
 
 ===================================
 
+An exception has occured on 14:09:14
+===================================
+java.lang.NumberFormatException: null
+	at java.base/java.lang.Integer.parseInt(Integer.java:620)
+	at java.base/java.lang.Integer.parseInt(Integer.java:776)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:48)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:30)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+

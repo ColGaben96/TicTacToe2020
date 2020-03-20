@@ -36,16 +36,16 @@ metodo llamado estanAtacando().
  */
 public class IA {
 	
-	int jugada[][] = new int[3][3];
-	int tablero[][] = new int[3][3];
-	int esquina[] = new int[4];
-	int lados[] = new int[4];
-	int centro = 5; // la variable centro guarda la posicion central del tablero
-	int estrategia = 0;
-	int posicion = 0;
-	int posicionCpu = 0;
-	int gameOver=0;
-	int jugoCpu=0;  // Si es cero la cpu no ha jugado
+	private int jugada[][] = new int[3][3];
+    private int tablero[][] = new int[3][3];
+	private int esquina[] = new int[4];
+	private int lados[] = new int[4];
+	private int centro = 5; // la variable centro guarda la posicion central del tablero
+	private int estrategia = 0;
+	private int posicion = 0;
+	private int posicionCpu = 0;
+	private int gameOver=0;
+	private int jugoCpu=0;  // Si es cero la cpu no ha jugado
 
 	/**
 	 * @author Carlos Albarracín
@@ -650,4 +650,85 @@ public class IA {
 		}
 		System.out.print("GameOver");
 	}
+
+	public int[][] getJugada() {
+		return jugada;
+	}
+
+	public void setJugada(int[][] jugada) {
+		this.jugada = jugada;
+	}
+
+	public int[][] getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(int[][] tablero) {
+		this.tablero = tablero;
+	}
+
+	public int[] getEsquina() {
+		return esquina;
+	}
+
+	public void setEsquina(int[] esquina) {
+		this.esquina = esquina;
+	}
+
+	public int[] getLados() {
+		return lados;
+	}
+
+	public void setLados(int[] lados) {
+		this.lados = lados;
+	}
+
+	public int getCentro() {
+		return centro;
+	}
+
+	public void setCentro(int centro) {
+		this.centro = centro;
+	}
+
+	public int getEstrategia() {
+		return estrategia;
+	}
+
+	public void setEstrategia(int estrategia) {
+		this.estrategia = estrategia;
+	}
+
+	public int getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(int posicion) {
+		this.posicion = posicion;
+	}
+
+	public int getPosicionCpu() {
+		return posicionCpu;
+	}
+
+	public void setPosicionCpu(int posicionCpu) {
+		this.posicionCpu = posicionCpu;
+	}
+
+	public int getGameOver() {
+		return gameOver;
+	}
+
+	public void setGameOver(int gameOver) {
+		this.gameOver = gameOver;
+	}
+
+	public int getJugoCpu() {
+		return jugoCpu;
+	}
+
+	public void setJugoCpu(int jugoCpu) {
+		this.jugoCpu = jugoCpu;
+	}
+	
 }
