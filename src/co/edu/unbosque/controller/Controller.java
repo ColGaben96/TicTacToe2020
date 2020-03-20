@@ -1,6 +1,5 @@
 package co.edu.unbosque.controller;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -29,7 +28,7 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() throws Exception {
 		Consola();
-		//Estoy subiendo un cambio chimbo
+		// Estoy subiendo un cambio chimbo
 	}
 
 	/**
@@ -86,23 +85,38 @@ public class Controller implements ActionListener {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
+
 	/*
 	 * TODO: Poner los métodos a probar aqui
 	 */
 	public void IA(int holi) {
-		IA ia =new IA();
+		IA ia = new IA();
 		ia.defender(holi);
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
 			// TODO: Ingresar aquí las interacciones con Mundo
-
-		} 
+			boolean jugando = true;
+			while (jugando) {
+				if (view.getPaneltablero().getPos11().getText().equals("x") && view.getPaneltablero().getPos11().getText().equals("X")) {
+					view.getPaneltablero().getPos11().setText("X");
+				}
+				if (!view.getPaneltablero().getPos11().getText().equals("x") && !view.getPaneltablero().getPos11().getText().equals("X")) {
+					view.getPaneltablero().getPos11().setText("");
+					view.getDialogos().output("Error","El valor ingresa debe ser X " , JOptionPane.ERROR_MESSAGE);
+				}
+				
+					
+              
+				jugando = false;
+			}
+		}
 		/*
 		 * Estas líneas son para controlar en caso de que por falta de memoria no genere
-		 * el log. Esto es vital para el programa ya que me permite llevar una trazabilidad
+		 * el log. Esto es vital para el programa ya que me permite llevar una
+		 * trazabilidad
 		 */
 		catch (Exception e2) {
 			StringWriter errors = new StringWriter();

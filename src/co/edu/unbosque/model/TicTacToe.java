@@ -20,7 +20,6 @@ public class TicTacToe {
 		}
 		return turno;
 	}
-	
 	public String definirGanador() {
 		return null;
 	}
