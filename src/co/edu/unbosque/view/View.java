@@ -133,5 +133,21 @@ public class View extends JFrame {
 	public Dialogos getDialogos() {
 		return dialogos;
 	}
+	public PanelTablero getPaneltablero() {
+		return paneltablero;
+	}
+	public void setPaneltablero(PanelTablero paneltablero) {
+		this.paneltablero = paneltablero;
+	}
+	public PanelBoton getPanelboton() {
+		return panelboton;
+	}
+	public void setPanelboton(PanelBoton panelboton) {
+		this.panelboton = panelboton;
+	}
+	public void setDialogos(Dialogos dialogos) {
+		this.dialogos = dialogos;
+	}
+	
 	
 }
