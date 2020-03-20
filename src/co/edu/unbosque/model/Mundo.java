@@ -8,12 +8,11 @@ import co.edu.unbosque.model.persistence.GabenProperties;
  * Clase "multitoma" donde se define la soluci�n de la problem�tica
  */
 public class Mundo {
-	private IA ia = new IA();
-	private TicTacToe tictactoe = new TicTacToe();
+	
 	private GabenFile archivo = new GabenFile();
 	private GabenProperties propiedad = new GabenProperties();
-	private TicTacToe tictactoe = new TicTacToe();
 	private IA ia = new IA();
+	private TicTacToe tictactoe = new TicTacToe();
 
 	public GabenFile getArchivo() {
 		return archivo;
