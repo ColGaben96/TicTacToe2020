@@ -20,7 +20,6 @@ public class PanelBoton extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		repaint();
 	}
 	/**
 	 * @author Ricardo Sanchez
