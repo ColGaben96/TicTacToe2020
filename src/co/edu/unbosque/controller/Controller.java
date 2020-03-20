@@ -92,7 +92,42 @@ public class Controller implements ActionListener {
 	public void IA(int holi) {
 		IA ia = new IA();
 		ia.defender(holi);
+		
 	}
+
+	public String jugadasRealizadas() {
+		
+		IA ia = new IA();
+		int tablero[][] = new int[3][3];
+		int posicion;
+		String jugadaRealizada="";
+		
+		tablero[0][0] = 1;
+		tablero[0][1] = 2;
+		tablero[0][2] = 3;
+		tablero[1][0] = 4;
+		tablero[1][1] = 5;
+		tablero[1][2] = 6;
+		tablero[2][0] = 7;
+		tablero[2][1] = 8;
+		tablero[2][2] = 9;
+		
+		for(int i=0; i<=2 ; i++) {
+			
+			for(int j=0; j<=2 ; j++) {
+				
+				posicion= tablero[i][j];
+				
+				jugadaRealizada = jugadaRealizada + posicion + "=" +  ia.getJugada(i, j) + " ";
+				
+			}
+			
+		}
+	
+		return jugadaRealizada; 
+		
+	}
+	
 
 	/**
 	 *@author Luis Ricardo Sanchez

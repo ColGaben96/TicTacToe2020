@@ -638,6 +638,7 @@ public class IA {
 					}
 				}
 			}
+			
 		} // fin jugada cpu
 		
 	
@@ -650,9 +651,12 @@ public class IA {
 		}
 		System.out.print("GameOver");
 	}
+	
 
-	public int[][] getJugada() {
-		return jugada;
+
+	public int getJugada(int x , int y) {
+		int juego = jugada[x][y];
+		return juego;
 	}
 
 	public void setJugada(int[][] jugada) {

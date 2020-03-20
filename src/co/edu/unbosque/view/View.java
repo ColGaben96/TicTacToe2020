@@ -4,9 +4,9 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import co.edu.unbosque.controller.Controller;
-import marvin.gui.MarvinImagePanel;
-import marvin.image.MarvinImage;
-import marvin.io.MarvinImageIO;
+//import marvin.gui.MarvinImagePanel;
+//import marvin.image.MarvinImage;
+//import marvin.io.MarvinImageIO;
 
 import java.awt.*;
 import java.io.IOException;
@@ -20,9 +20,9 @@ public class View extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private Dialogos dialogos = new Dialogos();
 	private PanelJuego panelJuego = new PanelJuego();
-	//private BufferedImage img;
+	private BufferedImage img;
 	private MarvinImage img;
-	private MarvinImagePanel marvinPanel = new MarvinImagePanel();
+	//private MarvinImagePanel marvinPanel = new MarvinImagePanel();
 	//private ImageIcon image;
 	//private JLabel background;
 	
@@ -67,7 +67,7 @@ public class View extends JFrame {
 	 */
 	public void addComponentes() {
 		//TODO: Añadir aquí los componentes
-		add(marvinPanel);
+	//	add(marvinPanel);
 		add(panelJuego);
 	}
 	
