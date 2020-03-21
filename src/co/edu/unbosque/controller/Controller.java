@@ -91,9 +91,7 @@ public class Controller implements ActionListener {
 	 */
 	public void IA(int holi) {
 		IA ia = new IA();
-		int jugada = 1;
-		ia.defender(jugada);
-
+		ia.defender(holi);
 	}
 
 	/**
