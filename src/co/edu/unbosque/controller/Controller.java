@@ -91,72 +91,31 @@ public class Controller implements ActionListener {
 	 */
 	public void IA(int holi) {
 		IA ia = new IA();
-		ia.defender(holi);
-		
-	}
+		int jugada = 1;
+		ia.defender(jugada);
 
-	public String jugadasRealizadas() {
-		
-		IA ia = new IA();
-		int tablero[][] = new int[3][3];
-		int posicion;
-		String jugadaRealizada="";
-		
-		tablero[0][0] = 1;
-		tablero[0][1] = 2;
-		tablero[0][2] = 3;
-		tablero[1][0] = 4;
-		tablero[1][1] = 5;
-		tablero[1][2] = 6;
-		tablero[2][0] = 7;
-		tablero[2][1] = 8;
-		tablero[2][2] = 9;
-		
-		for(int i=0; i<=2 ; i++) {
-			
-			for(int j=0; j<=2 ; j++) {
-				
-				posicion= tablero[i][j];
-				
-				jugadaRealizada = jugadaRealizada + posicion + "=" +  ia.getJugada(i, j) + " ";
-				
-			}
-			
-		}
-	
-		return jugadaRealizada; 
-		
 	}
-	
 
 	/**
-	 *@author Luis Ricardo Sanchez
-	 *@param ActionEvent e
+	 * @author Luis Ricardo Sanchez
+	 * @param ActionEvent e
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
 			// TODO: Ingresar aquí las interacciones con Mundo
-			
+
 			boolean jugando = true;
 			validarletraingresada();
-			
+
 			while (jugando) {
-				
-		
-				
-				
-				
-				
-					
-              
+
 				jugando = false;
 			}
 		}
 		/*
 		 * Estas líneas son para controlar en caso de que por falta de memoria no genere
-		 * el log. Esto es vital para el programa ya que me permite llevar una
-		 * trazabilidad
+		 * el log. Esto es vital para el programa ya que me permite llevar una trazabilidad
 		 */
 		catch (Exception e2) {
 			StringWriter errors = new StringWriter();
@@ -175,88 +134,92 @@ public class Controller implements ActionListener {
 		}
 
 	}
-	
-		
-	
+
 	public void validarletraingresada() {
 		if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos11().setText("X");
-			
+
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos11().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos12().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos12().setText("X");
-			
+
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos12().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos13().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos13().setText("X");
-			
+
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos13().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos21().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos21().setText("X");
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos21().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos22().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos22().setText("X");
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos22().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos23().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos23().setText("X");
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos23().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos31().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos31().setText("X");
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos31().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
-		
+
 		if (view.getPanelJuego().getPanelTablero().getPos32().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos32().setText("X");
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos32().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-		
-		
-		if(view.getPanelJuego().getPanelTablero().getPos33().getText().equals("x")) {
+
+		if (view.getPanelJuego().getPanelTablero().getPos33().getText().equals("x")) {
 			view.getPanelJuego().getPanelTablero().getPos33().setText("X");
 		}
-		if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("x") && !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")) {
+		if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("x")
+				&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")) {
 			view.getPanelJuego().getPanelTablero().getPos33().setText("");
-			view.getDialogos().output("Error","Debes colocar una X para jugar conmigo" , JOptionPane.ERROR_MESSAGE);
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 		}
-	 
+
 	}
 
 }
