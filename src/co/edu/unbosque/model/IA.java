@@ -691,11 +691,10 @@ public class IA {
 		 break;
 		}
 		
-		return juegaCpu +"\n"+"O";
+		return "posicion["+ juegaCpu.substring(0,1) +"]" + "posicion[" + juegaCpu.substring(1,2) + "]" +"\n"+"O";
 	
 	}
 	
-
 
 	public int getJugada(int x , int y) {
 		int juego = jugada[x][y];
