@@ -12,8 +12,8 @@ public class Mundo {
 	private TicTacToe tictactoe = new TicTacToe();
 	private GabenFile archivo = new GabenFile();
 	private GabenProperties propiedad = new GabenProperties();
-	private TicTacToe tictactoe = new TicTacToe();
-	private IA ia = new IA();
+	
+	
 
 	public GabenFile getArchivo() {
 		return archivo;
