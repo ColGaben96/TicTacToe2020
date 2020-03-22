@@ -45,8 +45,9 @@ public class IA {
 	private int posicion = 0;
 	private int posicionCpu = 0;
 	private int gameOver=0;
-	private int jugoCpu=0;  // Si es cero la cpu no ha jugado
-
+	private int jugoCpu=0; // Si es cero la cpu no ha jugado
+    private String juegaCpu,juegaCpu1,juegaCpu2,juegaCpu3,juegaCpu4;
+	
 	/**
 	 * @author Carlos Albarracín
 	 * @return
@@ -73,6 +74,9 @@ public class IA {
 						System.out.print("Triqui Ganó \n");
 						gameOver=1;
 						jugoCpu=1;
+						juegaCpu2= String.valueOf(k) + String.valueOf(y) ;
+						juegaCpu3= String.valueOf(k) + String.valueOf(y) ;
+						juegaCpu4= String.valueOf(k) + String.valueOf(y) ;
 						return true;
 					}else {
 						triquit=0;
@@ -97,6 +101,9 @@ public class IA {
 						System.out.print("Triqui Ganó \n");
 						gameOver=1;
 						jugoCpu=1;
+						juegaCpu2= String.valueOf(x) + String.valueOf(yy) ;
+						juegaCpu3= String.valueOf(x) + String.valueOf(yy) ;
+						juegaCpu4= String.valueOf(x) + String.valueOf(yy) ;
 						return true;
 					}else {
 						triquit=0;
@@ -113,7 +120,7 @@ public class IA {
 	/**
 	 * @author Carlos Albarracín
 	 */
-	public void defender(int posicion) {
+	public String defender(int ordenJugada) {
 		
 		//TODO: Cambiar a método int[][] para responder las posiciones.
 		//TODO: Pasar todas las variables a parámetros
@@ -152,13 +159,10 @@ public class IA {
 		lados[0] = 2;
 		lados[1] = 4;
 		lados[2] = 6;
-		//lados[3] = 8;
+		lados[3] = 8;
 
 		
 		// ============================================= La primera jugada	// =============================================
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Digite la posicion de la primera jugada: ");
-		posicion = sc.nextInt();
 		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
@@ -193,50 +197,46 @@ public class IA {
 		if (estrategia == 1) {
 
 			jugada[1][1] = 2;
-			 System.out.print("\n Cpu juego en la posicion: " + tablero[1][1]);
-
+			juegaCpu1 = "11";
+			
 		}
 		if (estrategia == 2) {
 			switch (posicion) {
 			case 2:
 				jugada[0][0] = 2;
 				posicionCpu = 1;
-				System.out.print("la computadora juego la posiciï¿½n "+ posicionCpu  );
+				juegaCpu1 ="00";
 				break;
 			case 4:
 				jugada[2][0] = 2;
 				posicionCpu = 7;
-				System.out.print("la computadora juego la posiciï¿½n "+ posicionCpu  );
+				juegaCpu1 ="20";
 				break;
 			case 6:
 				jugada[0][2] = 2;
 				posicionCpu = 3;
-				System.out.print("la computadora juego la posiciï¿½n "+ posicionCpu  );
+				juegaCpu1 ="02";
 				break;
 			case 8:
 				jugada[2][2] = 2;
 				posicionCpu = 9;
-				System.out.print("la computadora juego la posiciï¿½n "+ posicionCpu  );
+				juegaCpu1 = "22";
 				break;
 
 			}
 		if(estrategia == 3) {
 			
 			posicionCpu=1;
+			juegaCpu1 ="00";
 			
 		}
 
 		}
-
+        
 		
-
 //	        ============================================= La segunda jugada =============================================
-		System.out.print("La posicion es: " + posicion + " La estrategia es: " + estrategia);
-		System.out.print("\n Digite la posicion de la segunda jugada: ");
-		posicion = sc.nextInt();
-        jugoCpu=0;
-		System.out.print("\n La posicion es: " + posicion + " La estrategia es: " + estrategia+ "\n");
 		
+        jugoCpu=0;
 		int triquit=0;
 		
 		for (int i = 0; i <= 2; i++) {
@@ -266,7 +266,7 @@ public class IA {
 					if(jugada[k][y] == 0) {
 						jugada[k][y]=2;
 						jugoCpu=1;
-						 System.out.print("\n Cpu juego en la posicion: " + tablero[k][y]);
+						juegaCpu2= String.valueOf(k) + String.valueOf(y);
 					}else {
 						triquit=0;
 					}
@@ -288,7 +288,7 @@ public class IA {
 					if(jugada[x][yy] == 0) {
 						jugada[x][yy]=2;
 						jugoCpu=1;
-						 System.out.print("\n Cpu juego en la posicion: " + tablero[x][yy]);
+						juegaCpu2= String.valueOf(x) + String.valueOf(yy) ;
 					}else {
 						triquit=0;
 					}
@@ -313,8 +313,8 @@ public class IA {
 						for(int k=0; k<=2 ; k++) {
 							if(jugada[k][y] == 0 && jugoCpu ==0)  {
 								jugada[k][y]=2;
-								 System.out.print("\n Cpu juego en la posicion: " + tablero[k][y]);
 								jugoCpu = 1;
+								juegaCpu2= String.valueOf(k) + String.valueOf(y) ;
 							}else {
 								triquit=0;
 							}
@@ -336,8 +336,8 @@ public class IA {
 						for(int yy=0; yy<=2 ; yy++) {
 							if(jugada[x][yy] == 0 && jugoCpu ==0) {
 								jugada[x][yy]=2;
-								 System.out.print("\n Cpu juego en la posicion: " + tablero[x][yy]);
 								jugoCpu = 1;
+								juegaCpu2= String.valueOf(x) + String.valueOf(yy) ;
 							}else {
 								triquit=0;
 							}
@@ -354,15 +354,6 @@ public class IA {
 		
 		
 		jugoCpu=0;
-		
-		System.out.print("\n Digite la posicion de la tercera jugada: ");
-		posicion = sc.nextInt();
-
-		System.out.print("La posicion es: " + posicion + " La estrategia es: " + estrategia+ "\n");
-		
-
-		
-	
 		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
@@ -395,8 +386,8 @@ public class IA {
 				for(int k=0; k<=2 ; k++) {
 					if(jugada[k][y] == 0 && jugoCpu == 0) {
 						jugada[k][y]=2;
-						 System.out.print("\n Cpu juego en la posicion: " + tablero[k][y]);
 						jugoCpu=1;
+						juegaCpu3= String.valueOf(k) + String.valueOf(y) ;
 					}else {
 						triquit=0;
 					}
@@ -417,7 +408,7 @@ public class IA {
 				for(int yy=0; yy<=2 ; yy++) {
 					if(jugada[x][yy] == 0 && jugoCpu == 0) {
 						jugada[x][yy]=2;
-						 System.out.print("\n Cpu juego en la posicion: " + tablero[x][yy]);
+						 juegaCpu3= String.valueOf(x) + String.valueOf(yy) ;
 						 jugoCpu=1;
 					}else {
 						triquit=0;
@@ -433,9 +424,9 @@ public class IA {
 		if(jugoCpu==0) {
 		    triquit= triquit + jugada[0][0] + jugada[1][1] + jugada[2][2]; 
 		    if(triquit==2) {
-		    	if(jugada[0][0] == 0) { jugada[0][0]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[0][0]);}
-		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[1][1]);}
-		    	if(jugada[2][2] == 0) { jugada[2][2]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[2][2]);}
+		    	if(jugada[0][0] == 0) { jugada[0][0]=2; jugoCpu=1;  juegaCpu3="00";}
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1;  juegaCpu3="11";}
+		    	if(jugada[2][2] == 0) { jugada[2][2]=2; jugoCpu=1;  juegaCpu3="22";}
 		    }
 		}
 		//Diagonal Izquierda evalua si puede haber triqui
@@ -443,9 +434,9 @@ public class IA {
 		if(jugoCpu==0) {
 		    triquit=triquit + jugada[0][2] + jugada[1][1] + jugada[2][0]; 
 		    if(triquit==2) {
-		    	if(jugada[0][2] == 0) { jugada[0][2]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[0][2]); }
-		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[1][1]); }
-		    	if(jugada[2][0] == 0) { jugada[2][0]=2; jugoCpu=1; System.out.print("Cpu jugo: " + tablero[2][0]); }
+		    	if(jugada[0][2] == 0) { jugada[0][2]=2; jugoCpu=1; juegaCpu3="02"; }
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; juegaCpu3="11"; }
+		    	if(jugada[2][0] == 0) { jugada[2][0]=2; jugoCpu=1; juegaCpu3="20"; }
 		    }
 		}
 		
@@ -464,8 +455,8 @@ public class IA {
 						for(int k=0; k<=2 ; k++) {
 							if(jugada[k][y] == 0 && jugoCpu ==0)  {
 								jugada[k][y]=2;
-								 System.out.print("\n Cpu juego en la posicion: " + tablero[k][y]);
 								jugoCpu = 1;
+								juegaCpu3= String.valueOf(k) + String.valueOf(y) ;
 							}else {
 								triquit=0;
 							}
@@ -486,8 +477,8 @@ public class IA {
 						for(int yy=0; yy<=2 ; yy++) {
 							if(jugada[x][yy] == 0 && jugoCpu ==0) {
 								jugada[x][yy]=2;
-								 System.out.print("\n Cpu juego en la posicion: " + tablero[x][yy]);
 								jugoCpu = 1;
+								juegaCpu3= String.valueOf(x) + String.valueOf(yy) ;
 							}else {
 								triquit=0;
 							}
@@ -501,12 +492,6 @@ public class IA {
 		
 		
 //      ============================================= La cuarta jugada =============================================
-		
-		
-		
-		System.out.print("\n Digite la posicion de la cuarta jugada: ");
-		posicion = sc.nextInt();
-		System.out.print("La posicion es: " + posicion + " La estrategia es: " + estrategia+ "\n");
 		
 		estanAtacando();
 
@@ -540,8 +525,8 @@ public class IA {
 				for(int k=0; k<=2 ; k++) {
 					if(jugada[k][y] == 0) {
 						jugada[k][y]=2;
-						 System.out.print("\n Cpu juego en la posicion: " + tablero[k][y]);
 						jugoCpu=1;
+						juegaCpu4= String.valueOf(k) + String.valueOf(y) ;
 					}else {
 						triquit=0;
 					}
@@ -562,7 +547,6 @@ public class IA {
 				for(int yy=0; yy<=2 ; yy++) {
 					if(jugada[x][yy] == 0) {
 						jugada[x][yy]=2;
-						 System.out.print("\n Cpu juego en la posicion: " + tablero[x][yy]);
 					}else {
 						triquit=0;
 					}
@@ -576,18 +560,18 @@ public class IA {
 		if(jugoCpu==0) {
 		    triquit+= jugada[0][0] + jugada[1][1] + jugada[2][2]; 
 		    if(triquit==2) {
-		    	if(jugada[0][0] == 0) { jugada[0][0]=2; jugoCpu=1; }
-		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; }
-		    	if(jugada[2][2] == 0) { jugada[2][2]=2; jugoCpu=1; }
+		    	if(jugada[0][0] == 0) { jugada[0][0]=2; jugoCpu=1; juegaCpu4="00"; }
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; juegaCpu4="11";}
+		    	if(jugada[2][2] == 0) { jugada[2][2]=2; jugoCpu=1; juegaCpu4="22";}
 		    }
 		}
 		//Diagonal Izquierda evalua si puede haber triqui
 		if(jugoCpu==0) {
 		    triquit+= jugada[0][2] + jugada[1][1] + jugada[2][0]; 
 		    if(triquit==2) {
-		    	if(jugada[0][2] == 0) { jugada[0][2]=2; jugoCpu=1; }
-		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; }
-		    	if(jugada[2][0] == 0) { jugada[2][0]=2; jugoCpu=1; }
+		    	if(jugada[0][2] == 0) { jugada[0][2]=2; jugoCpu=1; juegaCpu4="02";}
+		    	if(jugada[1][1] == 0) { jugada[1][1]=2; jugoCpu=1; juegaCpu4="11";}
+		    	if(jugada[2][0] == 0) { jugada[2][0]=2; jugoCpu=1; juegaCpu4="20";}
 		    }
 		}
 		
@@ -606,8 +590,8 @@ public class IA {
 						for(int k=0; k<=2 ; k++) {
 							if(jugada[k][y] == 0 && jugoCpu ==0)  {
 								jugada[k][y]=2;
-								 System.out.print("\n Cpu juego en la posicion: " + tablero[k][y]);
 								jugoCpu = 1;
+								juegaCpu4= String.valueOf(k) + String.valueOf(y) ;
 							}else {
 								triquit=0;
 							}
@@ -628,8 +612,8 @@ public class IA {
 						for(int yy=0; yy<=2 ; yy++) {
 							if(jugada[x][yy] == 0 && jugoCpu ==0) {
 								jugada[x][yy]=2;
-								 System.out.print("\n Cpu juego en la posicion: " + tablero[x][yy]);
 								jugoCpu = 1;
+								juegaCpu4= String.valueOf(x) + String.valueOf(yy) ;
 							}else {
 								triquit=0;
 							}
@@ -638,21 +622,44 @@ public class IA {
 					}
 				}
 			}
+			
 		} // fin jugada cpu
 		
 	
+		
 		}
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
-				 System.out.print("Fila : "+ i + " Columna :" + j + "=" + jugada[i][j] + "\n");
+				 
 			}			
 		}
 		System.out.print("GameOver");
+		
+		switch(ordenJugada) {
+		
+		case 1:
+			juegaCpu = juegaCpu1;
+		 break;
+		case 2:
+			juegaCpu =juegaCpu2;
+		 break;
+		case 3:
+			juegaCpu = juegaCpu3;
+		 break;
+		case 4:
+			juegaCpu = juegaCpu4;
+		 break;
+		}
+		
+		return "posicion["+ juegaCpu.substring(0,1) +"]" + "posicion[" + juegaCpu.substring(1,2) + "]" +"\n"+"O";
+	
 	}
+	
 
-	public int[][] getJugada() {
-		return jugada;
+	public int getJugada(int x , int y) {
+		int juego = jugada[x][y];
+		return juego;
 	}
 
 	public void setJugada(int[][] jugada) {
