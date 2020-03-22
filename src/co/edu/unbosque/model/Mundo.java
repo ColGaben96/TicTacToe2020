@@ -13,6 +13,8 @@ public class Mundo {
 	private GabenFile archivo = new GabenFile();
 	private GabenProperties propiedad = new GabenProperties();
 	
+	
+
 	public GabenFile getArchivo() {
 		return archivo;
 	}
