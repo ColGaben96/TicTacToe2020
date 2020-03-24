@@ -48,6 +48,7 @@ public class PanelTablero extends JPanel {
      * @throws Exception
      */
     public void cargar() throws Exception {
+    	
     	setLayout(null);
     	setBounds(0,0,800,500);
     	

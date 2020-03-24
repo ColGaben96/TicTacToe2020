@@ -109,7 +109,7 @@ public class Controller implements ActionListener {
 
 			if (e.getActionCommand() == view.getPanelJuego().getPanelBoton().OPERAR) {
 				validarCondicionesCorrectas();
-				//validarletraingresada();
+				
 			}
 		}
 
@@ -193,6 +193,7 @@ public class Controller implements ActionListener {
 	}
 
 	public void validarCondicionesCorrectas() {
+//		validarletraingresada();
 		if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x")) {
 			view.getPanelJuego().getPanelTablero().getPos11().setText("X");
 			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equals("") && 
@@ -204,6 +205,14 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				//Se pone la condicion
+//				view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
+//				view.getDialogos().output("Prueba", mundo.getIa().defender(1), JOptionPane.INFORMATION_MESSAGE);
+//				 if(mundo.getTictactoe().isTurno()==false) {
+//					    mundo.getTictactoe().turnos();
+//					    
+//	                 } else if(mundo.getTictactoe().isTurno()==true) {
+//	                	 view.getDialogos().output("Prueba", mundo.getIa().defender(1), JOptionPane.INFORMATION_MESSAGE);
+//	                 }
 
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
@@ -221,11 +230,16 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
-
-			} else {
-				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
-				view.getPanelJuego().getPanelTablero().getPos12().setText("");
-			}
+//	         if(mundo.getTictactoe().isTurno()==false) {
+//				    mundo.getTictactoe().turnos();
+//				    
+//                 } else if(mundo.getTictactoe().isTurno()==true) {
+//                	 mundo.getIa().defender(1);
+//                 }
+//			} else {
+//				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+//				view.getPanelJuego().getPanelTablero().getPos12().setText("");
+//			}
 		}
 		if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x")) {
 			view.getPanelJuego().getPanelTablero().getPos13().setText("X");
@@ -238,6 +252,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
+				 
 
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
@@ -255,7 +270,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
-
+				
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos21().setText("");
@@ -272,7 +287,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
-
+				
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos22().setText("");
@@ -289,7 +304,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
-
+				
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos23().setText("");
@@ -306,7 +321,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
-
+				
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos31().setText("");
@@ -323,7 +338,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 				// Se pone la condicion
-
+				
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos32().setText("");
@@ -340,7 +355,7 @@ public class Controller implements ActionListener {
 					view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")&&
 					view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")) {
 				// Se pone la condicion
-
+				
 			} else {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos33().setText("");
@@ -348,4 +363,5 @@ public class Controller implements ActionListener {
 			}
 		}
 	}
+  }	
 }
