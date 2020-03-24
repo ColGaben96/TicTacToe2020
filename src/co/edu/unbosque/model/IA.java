@@ -162,9 +162,13 @@ public class IA {
 
 		
 		// ============================================= La primera jugada	// =============================================
+<<<<<<< HEAD
 		posicion=p1;
 	if(ordenJugada >= 1) {
 	
+=======
+		
+>>>>>>> parent of f3057ae... Update IA.java
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
@@ -233,7 +237,7 @@ public class IA {
 		}
 
 		}
-	}   
+        
 		
 //	        ============================================= La segunda jugada =============================================
 	posicion=p2;
@@ -497,8 +501,12 @@ public class IA {
 	}
 	
 //         ============================================= La cuarta jugada =============================================
+<<<<<<< HEAD
 	posicion=p4;
 	if(ordenJugada == 4) {
+=======
+	if(ordenJugada >= 4) {
+>>>>>>> parent of f3057ae... Update IA.java
 		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
