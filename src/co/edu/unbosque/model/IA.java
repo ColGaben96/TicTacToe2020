@@ -658,7 +658,35 @@ public class IA {
 		return "posicion["+ juegaCpu.substring(0,1) +"]" + "posicion[" + juegaCpu.substring(1,2) + "]" +"\n"+"O";
 	    
 	}
-	
+	public int verPosicion(int fila , int columna) {
+
+		// Se almacena las pociones del tablero del triqui en la matriz tablero.
+		tablero[0][0] = 1;
+		tablero[0][1] = 2;
+		tablero[0][2] = 3;
+		tablero[1][0] = 4;
+		tablero[1][1] = 5;
+		tablero[1][2] = 6;
+		tablero[2][0] = 7;
+		tablero[2][1] = 8;
+		tablero[2][2] = 9;
+		
+		int pos=0;
+		
+		for(int i = 0; i <= 2; i++) {
+			
+			for(int j = 0; j <= 2; j++) {
+				
+				if(fila == i && columna == j) {
+					
+					pos=tablero[i][j];
+				}
+				
+			}
+		}
+		
+		return pos;
+	}
 
 	public int getJugada(int x , int y) {
 		int juego = jugada[x][y];
