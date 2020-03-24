@@ -47,6 +47,7 @@ public class IA {
 	private int gameOver=0;
 	private int jugoCpu=0; // Si es cero la cpu no ha jugado
     private String juegaCpu,juegaCpu1,juegaCpu2,juegaCpu3,juegaCpu4;
+    private int triquit=0;
 	
 	/**
 	 * @author Carlos Albarracín
@@ -71,7 +72,6 @@ public class IA {
 				for(int k=0; k<=2 ; k++) {
 					if(jugada[k][y] == 0 && jugoCpu == 0) {
 						jugada[k][y]=2;
-						System.out.print("Triqui Ganó \n");
 						gameOver=1;
 						jugoCpu=1;
 						juegaCpu2= String.valueOf(k) + String.valueOf(y) ;
@@ -98,7 +98,6 @@ public class IA {
 				for(int yy=0; yy<=2 ; yy++) {
 					if(jugada[x][yy] == 0 && jugoCpu == 0 ) {
 						jugada[x][yy]=2;
-						System.out.print("Triqui Ganó \n");
 						gameOver=1;
 						jugoCpu=1;
 						juegaCpu2= String.valueOf(x) + String.valueOf(yy) ;
@@ -235,9 +234,10 @@ public class IA {
         
 		
 //	        ============================================= La segunda jugada =============================================
+	if(ordenJugada >= 2) {
 		
         jugoCpu=0;
-		int triquit=0;
+	    triquit=0;
 		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
@@ -299,7 +299,6 @@ public class IA {
 		//================ Si no ha jugado la cpu realiza su mejor jugada donde exista una fila o columna que haya jugado ==================== 
 		
 		if(jugoCpu == 0) {
-			System.out.print("\n No juego en la segunda" + jugoCpu );
 			 for(int y=0; y<=2 ; y++) {
 					triquit=0;
 					for(int x=0; x<=2 ; x++) {
@@ -348,10 +347,10 @@ public class IA {
 			}
 		 // fin jugada cpu
 		
-	
+	}
 		
 //        ============================================= La tercera jugada =============================================
-		
+	if(ordenJugada >= 3) {
 		
 		jugoCpu=0;
 		
@@ -490,11 +489,12 @@ public class IA {
 		} // fin jugada cpu
 		
 		
-		
-//      ============================================= La cuarta jugada =============================================
-		
 		estanAtacando();
-
+	}
+	
+//         ============================================= La cuarta jugada =============================================
+	if(ordenJugada >= 4) {
+		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
@@ -624,18 +624,16 @@ public class IA {
 			}
 			
 		} // fin jugada cpu
-		
-	
-		
-		}
+
+	  }
+	}// fin de cuarta jugada
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
 				 
 			}			
 		}
-		System.out.print("GameOver");
-		
+
 		switch(ordenJugada) {
 		
 		case 1:
@@ -653,7 +651,7 @@ public class IA {
 		}
 		
 		return "posicion["+ juegaCpu.substring(0,1) +"]" + "posicion[" + juegaCpu.substring(1,2) + "]" +"\n"+"O";
-	
+	    
 	}
 	
 
