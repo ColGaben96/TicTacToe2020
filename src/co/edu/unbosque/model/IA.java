@@ -119,7 +119,7 @@ public class IA {
 	/**
 	 * @author Carlos Albarracín
 	 */
-	public String defender(int ordenJugada) {
+	public String defender(int ordenJugada,int p1,int p2,int p3,int p4) {
 		
 		//TODO: Cambiar a método int[][] para responder las posiciones.
 		//TODO: Pasar todas las variables a parámetros
@@ -162,8 +162,9 @@ public class IA {
 
 		
 		// ============================================= La primera jugada	// =============================================
+		posicion=p1;
 	if(ordenJugada >= 1) {
-		
+	
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
@@ -235,6 +236,7 @@ public class IA {
 	}   
 		
 //	        ============================================= La segunda jugada =============================================
+	posicion=p2;
 	if(ordenJugada >= 2) {
 		
         jugoCpu=0;
@@ -351,6 +353,7 @@ public class IA {
 	}
 		
 //        ============================================= La tercera jugada =============================================
+	posicion=p3;
 	if(ordenJugada >= 3) {
 		
 		jugoCpu=0;
@@ -494,6 +497,7 @@ public class IA {
 	}
 	
 //         ============================================= La cuarta jugada =============================================
+	posicion=p4;
 	if(ordenJugada == 4) {
 		
 		for (int i = 0; i <= 2; i++) {
