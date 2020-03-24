@@ -3,7 +3,7 @@ package co.edu.unbosque.model;
 import java.util.Scanner;
 
 /**
- * @author Carlos Albarracín & Gabriel Blanco
+ * @author Carlos Albarracï¿½n & Gabriel Blanco
  * 
  * Se enumeran las posiciones del tablero de triqui de la siguiente manera:
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
 | 4 |  | 5 |  | 6 |
 | 7 |  | 8 |  | 9 |
 
-Cuando el jugador da clic en uno de los botones de la posición le envia el número de posición a esta clase (con interfaz gráfica)
+Cuando el jugador da clic en uno de los botones de la posiciï¿½n le envia el nï¿½mero de posiciï¿½n a esta clase (con interfaz grï¿½fica)
 
 La celdas esquineras son: 1,3,7,9 estos valores se guardan en el vector esquina[][]
 la celdas de los lados son: 2,4,6,8 estos valores se guardan en el vector lado[][]
@@ -50,7 +50,7 @@ public class IA {
     private int triquit=0;
 	
 	/**
-	 * @author Carlos Albarracín
+	 * @author Carlos Albarracï¿½n
 	 * @return
 	 * Estos bucles  revisan todas las columnas y filas en donde exista la posibilidad de que la cpu haga triqui
 	 * Si la suma de las filas es igual a 4 indica que hay posibilidades de hacer triqui.Esto teniendo encuenta que cuando juega la cpu coloca 
@@ -117,12 +117,12 @@ public class IA {
 	}
 
 	/**
-	 * @author Carlos Albarracín
+	 * @author Carlos Albarracï¿½n
 	 */
 	public String defender(int ordenJugada,int p1,int p2,int p3,int p4) {
 		
-		//TODO: Cambiar a método int[][] para responder las posiciones.
-		//TODO: Pasar todas las variables a parámetros
+		//TODO: Cambiar a mï¿½todo int[][] para responder las posiciones.
+		//TODO: Pasar todas las variables a parï¿½metros
 
 		// Se almacena las pociones del tablero del triqui en la matriz tablero.
 		tablero[0][0] = 1;
@@ -162,9 +162,7 @@ public class IA {
 
 		
 		// ============================================= La primera jugada	// =============================================
-		posicion=p1;
-	if(ordenJugada >= 1) {
-	
+		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
@@ -233,7 +231,7 @@ public class IA {
 		}
 
 		}
-	}   
+        
 		
 //	        ============================================= La segunda jugada =============================================
 	posicion=p2;
