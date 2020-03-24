@@ -122,6 +122,7 @@ public class View extends JFrame {
 		}
 		return path;
 	}
+	
 
 	/**
 	 * @author Ricardo Sanchez
