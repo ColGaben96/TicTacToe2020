@@ -3,35 +3,26 @@ package co.edu.unbosque.model;
 import java.util.Scanner;
 
 /**
- * @author Carlos AlbarracÌn & Gabriel Blanco
+ * @author Carlos Albarrac√≠n & Gabriel Blanco
  * 
  * Se enumeran las posiciones del tablero de triqui de la siguiente manera:
-
 | 1 |  | 2 |  | 3 |
 | 4 |  | 5 |  | 6 |
 | 7 |  | 8 |  | 9 |
-
-Cuando el jugador da clic en uno de los botones de la posiciÛn le envia el n˙mero de posiciÛn a esta clase (con interfaz gr·fica)
-
+Cuando el jugador da clic en uno de los botones de la posici√≥n le envia el n√∫mero de posici√≥n a esta clase (con interfaz gr√°fica)
 La celdas esquineras son: 1,3,7,9 estos valores se guardan en el vector esquina[][]
 la celdas de los lados son: 2,4,6,8 estos valores se guardan en el vector lado[][]
 la celda central es la numero 5 este valor se guarda en la variable centro
 las esquinas vecinas a los lados son: lado 2 --> celdas 1,3 lado 4 --> celdas 1,7 lado 6 --> celdas 3,9 lado 8 --> celdas 7,9
 Estos valores se utlizan para seleccionar la estrategia a seguir.
-
 Se tienen tres estrategias de defensa y una estrategia de ataque.
-
 Estrategia de defensa:
-
 1.si el jugador juega en una celda esquinera, la cpu debe seleccionar el centro del tablero
 2.Si el jugador selecciona una casilla de lado del tablero la cpu puede seleccioanr cualquier esquina vecina del lado seleccionado
 3.El programa debe identificar las filas o columnas en las que el jugador pueda hacer triqui y jugar para evitarlo
-
 Estrategia de ataque:
-
 1.Estrategia de ataque: Consiste en identifcar las filas o columnas en la que la cpu puede completar el triqui.para esto se utliza el
 metodo llamado estanAtacando().
-
  *
  */
 public class IA {
@@ -50,7 +41,7 @@ public class IA {
     private int triquit=0;
 	
 	/**
-	 * @author Carlos AlbarracÌn
+	 * @author Carlos Albarrac√≠n
 	 * @return
 	 * Estos bucles  revisan todas las columnas y filas en donde exista la posibilidad de que la cpu haga triqui
 	 * Si la suma de las filas es igual a 4 indica que hay posibilidades de hacer triqui.Esto teniendo encuenta que cuando juega la cpu coloca 
@@ -117,12 +108,12 @@ public class IA {
 	}
 
 	/**
-	 * @author Carlos AlbarracÌn
+	 * @author Carlos Albarrac√≠n
 	 */
 	public String defender(int ordenJugada,int p1,int p2,int p3,int p4) {
 		
-		//TODO: Cambiar a mÈtodo int[][] para responder las posiciones.
-		//TODO: Pasar todas las variables a par·metros
+		//TODO: Cambiar a m√©todo int[][] para responder las posiciones.
+		//TODO: Pasar todas las variables a par√°metros
 
 		// Se almacena las pociones del tablero del triqui en la matriz tablero.
 		tablero[0][0] = 1;
@@ -162,13 +153,9 @@ public class IA {
 
 		
 		// ============================================= La primera jugada	// =============================================
-<<<<<<< HEAD
 		posicion=p1;
 	if(ordenJugada >= 1) {
 	
-=======
-		
->>>>>>> parent of f3057ae... Update IA.java
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
 
@@ -237,7 +224,7 @@ public class IA {
 		}
 
 		}
-        
+	}   
 		
 //	        ============================================= La segunda jugada =============================================
 	posicion=p2;
@@ -501,12 +488,8 @@ public class IA {
 	}
 	
 //         ============================================= La cuarta jugada =============================================
-<<<<<<< HEAD
 	posicion=p4;
 	if(ordenJugada == 4) {
-=======
-	if(ordenJugada >= 4) {
->>>>>>> parent of f3057ae... Update IA.java
 		
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
