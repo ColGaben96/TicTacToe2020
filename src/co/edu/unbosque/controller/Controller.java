@@ -93,7 +93,7 @@ public class Controller implements ActionListener {
 		IA ia = new IA();
 		int jugada=0;		
 		int p1=0,p2=0,p3=0,p4=0;
-	    p1=1;p2=3;p3=8;p4=0;   // Este un ejemplo de tres jugadas con las posiciones 1,3,8
+	  //  p1=1;p2=3;p3=8;p4=0;   Este un ejemplo de tres jugadas con las posiciones 1,3,8
 	    // El panel debe enviar los valores p1,p2,p3,p4
 		ia.defender(jugada,p1,p2,p3,p4);
 	}
