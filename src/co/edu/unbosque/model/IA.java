@@ -2,6 +2,7 @@ package co.edu.unbosque.model;
 
 import java.util.Scanner;
 
+
 /**
  * @author Carlos Albarracín & Gabriel Blanco
  * 
@@ -26,7 +27,10 @@ metodo llamado estanAtacando().
  *
  */
 public class IA {
-	
+	private int  resultado= 0;/*
+	                           * la variable resultado se usa para verificar si es ganador el cpu, no gano el cpu o es empate.
+	                           */
+	private double random= Math.random()*1;
 	private int jugada[][] = new int[3][3];
     private int tablero[][] = new int[3][3];
 	private int esquina[] = new int[4];
@@ -63,6 +67,7 @@ public class IA {
 				for(int k=0; k<=2 ; k++) {
 					if(jugada[k][y] == 0 && jugoCpu == 0) {
 						jugada[k][y]=2;
+						resultado = 1;
 						gameOver=1;
 						jugoCpu=1;
 						juegaCpu2= String.valueOf(k) + String.valueOf(y) ;
@@ -89,6 +94,7 @@ public class IA {
 				for(int yy=0; yy<=2 ; yy++) {
 					if(jugada[x][yy] == 0 && jugoCpu == 0 ) {
 						jugada[x][yy]=2;
+						resultado=1;
 						gameOver=1;
 						jugoCpu=1;
 						juegaCpu2= String.valueOf(x) + String.valueOf(yy) ;
@@ -196,36 +202,86 @@ public class IA {
 			switch (posicion) {
 			case 2:
 				jugada[0][0] = 2;
+				if(random<=0.5) {
 				posicionCpu = 1;
 				juegaCpu1 ="00";
+				
+				}
+				else {
+					posicionCpu = 3;
+					juegaCpu1="02";
+					
+				}
 				break;
 			case 4:
 				jugada[2][0] = 2;
-				posicionCpu = 7;
-				juegaCpu1 ="20";
+				if(random<=0.5) {
+					posicionCpu = 1;
+					juegaCpu1="00";
+				
+				}else {
+					posicionCpu = 7;
+					juegaCpu1 ="20";
+				}
 				break;
 			case 6:
-				jugada[0][2] = 2;
-				posicionCpu = 3;
-				juegaCpu1 ="02";
+				if(random<=0.5) {
+					posicionCpu = 3;
+					juegaCpu1="02";
+				
+				}else {
+					posicionCpu = 9;
+					juegaCpu1 ="22";
+				}
 				break;
 			case 8:
-				jugada[2][2] = 2;
-				posicionCpu = 9;
-				juegaCpu1 = "22";
+				if(random<=0.5) {
+					posicionCpu = 7;
+					juegaCpu1="20";
+				
+				}else {
+					posicionCpu = 9;
+					juegaCpu1 ="22";
+				}
 				break;
 
 			}
 		if(estrategia == 3) {
-			
-			posicionCpu=1;
-			juegaCpu1 ="00";
-			
+			int decisiones=(int)(Math.random()*4)+1;
+			switch (decisiones) {
+			 case 1:
+				posicionCpu=1;
+				juegaCpu1 = "00";
+				break;
+             case 2:
+            	 posicionCpu=3;
+ 				juegaCpu1 = "02";
+ 				
+				break;
+             case 3:
+            	 posicionCpu=7;
+ 				juegaCpu1 = "20";
+ 				
+				break;
+             case 4:
+            	 posicionCpu=9;
+ 				juegaCpu1 = "22";
+ 				
+ 				break;
+
+
+			default:
+				break;
+			}
+		
 		}
 
 		}
 	}   
-		
+	
+  /*
+   * @ Carlos Manuel Albarracin & Ricardo Sanchez
+   */
 //	        ============================================= La segunda jugada =============================================
 	posicion=p2;
 	if(ordenJugada >= 2) {
@@ -646,7 +702,7 @@ public class IA {
 		 break;
 		}
 		
-		return "posicion["+ juegaCpu.substring(0,1) +"]" + "posicion[" + juegaCpu.substring(1,2) + "]" +"\n"+"O";
+		return  juegaCpu.substring(0,2) + "\n"+"O" +"\n" + resultado;
 	    
 	}
 	public int verPosicion(int fila , int columna) {
