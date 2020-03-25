@@ -346,7 +346,7 @@ public class IA {
 				}
 			}
 		}
-		//================= Si no ha jugado la cpu realiza su mejor jugada donde exista una fila o columna que haya jugado ==================== 
+		//================ Si no ha jugado la cpu realiza su mejor jugada donde exista una fila o columna que haya jugado ==================== 
 		
 		if(jugoCpu == 0) {
 			 for(int y=0; y<=2 ; y++) {
