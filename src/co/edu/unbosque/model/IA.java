@@ -169,7 +169,6 @@ public class IA {
 				if (tablero[i][j] == p3) {jugada[i][j] = 1;}
 				if (tablero[i][j] == p4) {jugada[i][j] = 1;}
 				
-				System.out.println("Jugada: " + i + j + "= " + jugada[i][j] );
 			}
 		}
 		
