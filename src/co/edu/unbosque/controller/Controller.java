@@ -94,10 +94,10 @@ public class Controller implements ActionListener {
 	public void IA(int holi) {
 		IA ia = new IA();
 		int jugada = 0;
-		int p1 = 0, p2 = 0, p3 = 0, p4 = 0;
+		int p1 = 0, p2 = 0, p3 = 0, p4 = 0,cpu1=0,cpu2=0,cpu3=0;
 		// p1=1;p2=3;p3=8;p4=0; Este un ejemplo de tres jugadas con las posiciones 1,3,8
-		// El panel debe enviar los valores p1,p2,p3,p4
-		ia.defender(jugada, p1, p2, p3, p4);
+		// El panel debe enviar los valores p1,p2,p3,p4 y cpu1,cpu2,cpu3 que son las jugadas realizadasSSSSS
+		ia.defender(jugada, p1, p2, p3, p4,cpu1,cpu2,cpu3);
 	}
 
 	/**
@@ -175,9 +175,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion
 					
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -210,9 +210,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos11().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
@@ -245,9 +245,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -279,9 +279,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos31().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos31().setEditable(false);
@@ -313,9 +313,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion Solucionar el error de condicion y que sea random para las 4 esquinas.
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
@@ -347,9 +347,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
@@ -381,9 +381,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -415,9 +415,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0,0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos33().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
@@ -449,9 +449,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")) {
 					// TODO Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -498,9 +498,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
 					
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -533,9 +533,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos11().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
@@ -567,9 +567,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -601,9 +601,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos31().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos31().setEditable(false);
@@ -635,9 +635,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
@@ -669,9 +669,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
@@ -703,9 +703,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -737,9 +737,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos33().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
@@ -771,9 +771,9 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")) {
 					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2));
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0,0,0,0).subSequence(0,2));
 					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0,0,0,0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);

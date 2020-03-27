@@ -116,7 +116,7 @@ public class IA {
 	/**
 	 * @author Carlos Albarracín
 	 */
-	public String defender(int ordenJugada,int p1,int p2,int p3,int p4) {
+	public String defender(int ordenJugada,int p1,int p2,int p3,int p4,int cpu1,int cpu2,int cpu3) {
 		
 		//TODO: Cambiar a método int[][] para responder las posiciones.
 		//TODO: Pasar todas las variables a parámetros
@@ -157,6 +157,21 @@ public class IA {
 		lados[2] = 6;
 		lados[3] = 8;
 
+		//Actualiza las jugadas realizadas
+		for (int i = 0; i <= 2; i++) {
+			for (int j = 0; j <= 2; j++) {
+				
+				if (tablero[i][j] == cpu1) {jugada[i][j] = 2;}
+				if (tablero[i][j] == cpu2) {jugada[i][j] = 2;}
+				if (tablero[i][j] == cpu3) {jugada[i][j] = 2;}
+				if (tablero[i][j] == p1) {jugada[i][j] = 1;}
+				if (tablero[i][j] == p2) {jugada[i][j] = 1;}
+				if (tablero[i][j] == p3) {jugada[i][j] = 1;}
+				if (tablero[i][j] == p4) {jugada[i][j] = 1;}
+				
+				System.out.println("Jugada: " + i + j + "= " + jugada[i][j] );
+			}
+		}
 		
 		// ============================================= La primera jugada	// =============================================
 		posicion=p1;
