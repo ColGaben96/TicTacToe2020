@@ -10,7 +10,7 @@ import java.util.Scanner;
 | 1 |  | 2 |  | 3 |
 | 4 |  | 5 |  | 6 |
 | 7 |  | 8 |  | 9 |
-Cuando el jugador da clic en uno de los botones de la posición le envia el número de posición a esta clase (con interfaz gráfica)
+
 La celdas esquineras son: 1,3,7,9 estos valores se guardan en el vector esquina[][]
 la celdas de los lados son: 2,4,6,8 estos valores se guardan en el vector lado[][]
 la celda central es la numero 5 este valor se guarda en la variable centro
@@ -174,7 +174,7 @@ public class IA {
 		
 		// ============================================= La primera jugada	// =============================================
 		posicion=p1;
-	if(ordenJugada >= 1) {
+	if(ordenJugada == 1) {
 	
 		for (int i = 0; i <= 2; i++) {
 			for (int j = 0; j <= 2; j++) {
@@ -283,7 +283,6 @@ public class IA {
  				
  				break;
 
-
 			default:
 				break;
 			}
@@ -298,7 +297,7 @@ public class IA {
    */
 //	        ============================================= La segunda jugada =============================================
 	posicion=p2;
-	if(ordenJugada >= 2) {
+	if(ordenJugada == 2) {
 		
         jugoCpu=0;
 	    triquit=0;
@@ -415,7 +414,7 @@ public class IA {
 		
 //        ============================================= La tercera jugada =============================================
 	posicion=p3;
-	if(ordenJugada >= 3) {
+	if(ordenJugada == 3) {
 		
 		jugoCpu=0;
 		
