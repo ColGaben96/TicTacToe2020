@@ -532,6 +532,7 @@ public class Controller implements ActionListener {
 		validarCasillasDisponibles();
 		if (!(c1Enabled || c2Enabled)) {
 			//Casillas Ocupadas 1,1 y 1,2
+			
 		}
 		if (!(c1Enabled || c3Enabled)) {
 			//Casillas Ocupadas 1,1 y 1,3
