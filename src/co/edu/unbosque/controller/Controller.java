@@ -531,328 +531,112 @@ public class Controller implements ActionListener {
 	public void ValidarTurno2() throws Exception{
 		validarCasillasDisponibles();
 		if (!(c1Enabled || c2Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 1,2
 		}
 		if (!(c1Enabled || c3Enabled)) {
-			//Pos 12
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 1,3
 		}
 		if (!(c1Enabled || c4Enabled)) {
-			//Pos 12
-			//pos 13
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 2,1
 		}
 		if (!(c1Enabled || c5Enabled)) {
-			//Pos 12
-			//pos 13
-			//pos 21
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 2,2
 		}
 		if (!(c1Enabled || c6Enabled)) {
-			//Pos 12
-			//pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 2,3
 		}
 		if (!(c1Enabled || c7Enabled)) {
-			//Pos 12
-			//pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 3,1
 		}
 		if (!(c1Enabled || c8Enabled)) {
-			//Pos 12
-			//pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 33
+			//Casillas Ocupadas 1,1 y 3,2
 		}
 		if (!(c1Enabled || c9Enabled)) {
-			//Pos 12
-			//pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
+			//Casillas Ocupadas 1,1 y 3,3
 		}
 		if (!(c2Enabled || c3Enabled)) {
-			//Pos 11
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,2 y 1,3
 		}
 		if (!(c2Enabled || c4Enabled)) {
-			//Pos 11
-			//pos 13
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,2 y 2,1
 		}
 		if (!(c2Enabled || c5Enabled)) {
-			//Pos 11
-			//pos 13
-			//pos 21
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,2 y 2,2
 		}
 		if (!(c2Enabled || c6Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,2 y 2,3
 		}
 		if (!(c2Enabled || c7Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,2 y 3,1
 		}
 		if (!(c2Enabled || c8Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,2 y 3,2
 		}
 		if (!(c2Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 3,3
 		}
 		if (!(c3Enabled || c4Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,3 y 2,1
 		}
 		if (!(c3Enabled || c5Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,3 y 2,2
 		}
 		if (!(c3Enabled || c6Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,3 y 2,3
 		}
 		if (!(c3Enabled || c7Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,3 y 3,1
 		}
 		if (!(c3Enabled || c8Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,3 y 3,2
 		}
 		if (!(c3Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,3 y 3,3
 		}
 		if (!(c4Enabled || c5Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,1 y 2,2
 		}
 		if (!(c4Enabled || c6Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,1 y 2,3
 		}
 		if (!(c4Enabled || c7Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,1 y 3,1
 		}
 		if (!(c4Enabled || c8Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,1 y 3,2
 		}
 		if (!(c4Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 1,1 y 3,3
 		}
 		if (!(c5Enabled || c6Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,2 y 1,2
 		}
 		if (!(c5Enabled || c7Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,2 y 3,1
 		}
 		if (!(c5Enabled || c8Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,2 y 3,2
 		}
 		if (!(c5Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,2 y 3,3
 		}
 		if (!(c6Enabled || c7Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,3 y 3,1
 		}
 		if (!(c6Enabled || c8Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,3 y 3,2
 		}
 		if (!(c6Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 2,3 y 3,3
 		}
 		if (!(c7Enabled || c8Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 3,1 y 3,2
 		}
 		if (!(c7Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 3,1 y 3,3
 		}
 		if (!(c8Enabled || c9Enabled)) {
-			//Pos 13
-			//pos 21
-			//pos 22
-			//pos 23
-			//pos 31
-			//pos 32
-			//pos 33
+			//Casillas Ocupadas 3,2 y 3,3
 		}
 		contador++;
 	}
