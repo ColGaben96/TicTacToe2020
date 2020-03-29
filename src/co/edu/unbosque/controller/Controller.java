@@ -232,6 +232,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
+				
 					mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
@@ -265,12 +266,18 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2));
-					String guardado = jugadascpu[0];
+					String guardado[] = {"00","02"};
+					 
 					mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2);
-					if (jugadascpu[0] == guardado) {
+					if (guardado[0]== jugadascpu[0]) {
 						view.getPanelJuego().getPanelTablero().getPos11().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
 						mundo.getTictactoe().turnos();
+					if(guardado[1]== jugadascpu[1]){
+						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
+						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
+						mundo.getTictactoe().turnos();
+					}
 
 					}
 
