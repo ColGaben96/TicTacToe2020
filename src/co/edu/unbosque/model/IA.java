@@ -158,10 +158,9 @@ public class IA {
 		lados[2] = 6;
 		lados[3] = 8;
 
-		// ============================================= La primera jugada //
-		// =============================================
+		// ============================================= La primera jugada 	// =============================================
 		posicion = p1;
-		if (ordenJugada >= 1) {
+		if (ordenJugada == 1) {
 
 			for (int i = 0; i <= 2; i++) {
 				for (int j = 0; j <= 2; j++) {
@@ -283,7 +282,7 @@ public class IA {
 		 */
 //	        ============================================= La segunda jugada =============================================
 		posicion = p2;
-		if (ordenJugada >= 2) {
+		if (ordenJugada == 2) {
 
 			jugoCpu = 0;
 			triquit = 0;
@@ -404,7 +403,7 @@ public class IA {
 
 //        ============================================= La tercera jugada =============================================
 		posicion = p3;
-		if (ordenJugada >= 3) {
+		if (ordenJugada == 3) {
 
 			jugoCpu = 0;
 
