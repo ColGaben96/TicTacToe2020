@@ -1,0 +1,12 @@
+An exception has occured on 22:43:25
+===================================
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:68)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:776)
+	at co.edu.unbosque.controller.Controller.Consola(Controller.java:60)
+	at co.edu.unbosque.controller.Controller.<init>(Controller.java:33)
+	at co.edu.unbosque.controller.APLMain.main(APLMain.java:10)
+
+===================================
+

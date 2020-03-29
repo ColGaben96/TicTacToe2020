@@ -8,7 +8,6 @@ import java.io.StringWriter;
 
 import javax.swing.JOptionPane;
 
-import co.edu.unbosque.model.IA;
 import co.edu.unbosque.model.Mundo;
 import co.edu.unbosque.view.View;
 
@@ -17,11 +16,12 @@ import co.edu.unbosque.view.View;
  *
  */
 public class Controller implements ActionListener {
-	private int contador =0;
-    private String[] jugadascpu = new String[4];
-    private String[] jugadasjug = new String[4];
+	private int contador = 0;
+	private String[] jugadascpu = new String[4];
+	private String[] jugadasjug = new String[4];
 	private Mundo mundo = new Mundo();
 	private View view = new View();
+	private boolean c1Enabled, c2Enabled, c3Enabled, c4Enabled, c5Enabled, c6Enabled, c7Enabled, c8Enabled, c9Enabled;
 
 	/**
 	 * Mï¿½todo Constructor del Controlador
@@ -30,6 +30,15 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() throws Exception {
 		Consola();
+		c1Enabled = true;
+		c2Enabled = true;
+		c3Enabled = true;
+		c4Enabled = true;
+		c5Enabled = true;
+		c6Enabled = true;
+		c7Enabled = true;
+		c8Enabled = true;
+		c9Enabled = true;
 		// Estoy subiendo un cambio chimbo
 	}
 
@@ -91,13 +100,60 @@ public class Controller implements ActionListener {
 	/*
 	 * TODO: Poner los mï¿½todos a probar aqui
 	 */
-	public void IA(int holi) {
-		IA ia = new IA();
-		int jugada = 0;
-		int p1 = 0, p2 = 0, p3 = 0, p4 = 0;
-		// p1=1;p2=3;p3=8;p4=0; Este un ejemplo de tres jugadas con las posiciones 1,3,8
-		// El panel debe enviar los valores p1,p2,p3,p4
-		ia.defender(jugada, p1, p2, p3, p4);
+
+	/**
+	 * @author Gabriel Blanco Método para validar que casillas sirven
+	 */
+	public void validarCasillasDisponibles() {
+		/*
+		 * NOTA: Solo usar de turno 2 para arriba. Por defecto todas deben estar
+		 * habilitadas
+		 */
+		if (view.getPanelJuego().getPanelTablero().getPos11().isEditable()) {
+			c1Enabled = true;
+		} else {
+			c1Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos12().isEditable()) {
+			c2Enabled = true;
+		} else {
+			c2Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos13().isEditable()) {
+			c3Enabled = true;
+		} else {
+			c3Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos21().isEditable()) {
+			c4Enabled = true;
+		} else {
+			c4Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos22().isEditable()) {
+			c5Enabled = true;
+		} else {
+			c5Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos23().isEditable()) {
+			c6Enabled = true;
+		} else {
+			c6Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos31().isEditable()) {
+			c7Enabled = true;
+		} else {
+			c7Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos32().isEditable()) {
+			c8Enabled = true;
+		} else {
+			c8Enabled = false;
+		}
+		if (view.getPanelJuego().getPanelTablero().getPos33().isEditable()) {
+			c9Enabled = true;
+		} else {
+			c9Enabled = false;
+		}
 	}
 
 	/**
@@ -110,17 +166,19 @@ public class Controller implements ActionListener {
 			// TODO: Ingresar aquï¿½ las interacciones con Mundo
 
 			if (e.getActionCommand() == view.getPanelJuego().getPanelBoton().OPERAR) {
-				if(contador == 0) {
-				validarTurno1();
-				}
-				if(contador ==1) {
-//				ValidarTurno2();	
-				}
-				if(contador ==2) {
-					
-				}
-				if(contador ==3){
-					
+				switch (contador) {
+				case 0:
+					validarTurno1();
+					break;
+				case 1:
+					ValidarTurno2();
+					break;
+				case 2:
+					validarTurno3();
+					break;
+				case 3:
+					validarTurno4();
+					break;
 				}
 
 			}
@@ -150,20 +208,18 @@ public class Controller implements ActionListener {
 	}
 
 	/**
-	 * @author Luis Ricardo Sanchez
-	 * Este metodo valida el turno 1 y evita todos los errores.
-	 * realizar verificacion con randoms y borrar los JOptions de prueba cuando se termine de probar
+	 * @author Luis Ricardo Sanchez Este metodo valida el turno 1 y evita todos los
+	 *         errores. realizar verificacion con randoms y borrar los JOptions de
+	 *         prueba cuando se termine de probar
 	 */
 	public void validarTurno1() {
-		
-		
-		
+
 		if (mundo.getTictactoe().isTurno() == false) {
 			mundo.getTictactoe().turnos();
-		 	// Pos11
+			// Pos11
 			if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos11().setText("X");
-				jugadasjug[0] ="00";
+				jugadasjug[0] = "00";
 				view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
 				if (view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
@@ -173,31 +229,31 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion
-					
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos11().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos11().setText("");
-					
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos11().setText("");
+
+			}
 			// Pos12
 			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos12().setText("X");
@@ -209,30 +265,31 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos11().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
 						mundo.getTictactoe().turnos();
-					    
+
 					}
-					
-				} else if(!view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x")) {
+
+				} else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos12().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos12().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos12().setText("");
+			}
 			// Pos13
 			if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos13().setText("X");
@@ -245,28 +302,29 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
 					// TODO Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos13().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("O")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos13().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos13().setText("");
+			}
 			// Pos21
 			if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos21().setText("X");
@@ -278,29 +336,30 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos31().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos31().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos21().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos21().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos21().setText("");
+			}
 			// Pos22
 			if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos22().setText("X");
@@ -312,29 +371,30 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion Solucionar el error de condicion y que sea random para las 4 esquinas.
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos22().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos22().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos22().setText("");
+			}
 			// Pos23
 			if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos23().setText("X");
@@ -346,29 +406,30 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos23().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos23().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos23().setText("");
+			}
 			// Pos31
 			if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos31().setText("X");
@@ -380,29 +441,30 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos31().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos31().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos31().setText("");
+			}
 			// Pos32
 			if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos32().setText("X");
@@ -414,29 +476,30 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// TODO Se pone la condicion & hacer las conexiones del IA con el random y que verifique si el lado saca las dos probabilidades. 
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos33().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos32().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos32().setText("");
-				}	
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos32().setText("");
+			}
 			// Pos33
 			if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x")) {
 				view.getPanelJuego().getPanelTablero().getPos33().setText("X");
@@ -448,371 +511,779 @@ public class Controller implements ActionListener {
 						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")) {
-					// TODO Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
+
+					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0, 2));
+					String guardado = jugadascpu[0];
+					view.getDialogos().output("",
+							String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0, 2)),
+							JOptionPane.INFORMATION_MESSAGE);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
 						mundo.getTictactoe().turnos();
-						
+
 					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x")) {
+				} else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x")) {
 					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
 							JOptionPane.ERROR_MESSAGE);
 					view.getPanelJuego().getPanelTablero().getPos33().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos33().setText("");
-				}	
-			
-			}contador++;
+
+				}
+			} else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos33().setText("");
+			}
+
 		}
-	/**
-	 * @author Luis Ricardo Sanchez
-	 * Este metodo valida el turno 2 y evita todos los errores.
-	 * realizar verificacion con randoms y borrar los JOptions de prueba cuando se termine de probar
-	 */
-		
-	public void ValidarTurno2() {
-		if (mundo.getTictactoe().isTurno() == false) {
-			mundo.getTictactoe().turnos();
-		 	// Pos11
-			if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos11().setText("X");
-				jugadasjug[0] ="00";
-				view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
-				if (view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos11().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos11().setText("");
-					
-				}	
-			// Pos12
-			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos12().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos11().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos12().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos12().setText("");
-				}	
-			// Pos13
-			if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos13().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos13().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("O")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos13().setText("");
-				}	
-			// Pos21
-			if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos21().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos31().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos31().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos21().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos21().setText("");
-				}	
-			// Pos22
-			if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos22().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos22().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos22().setText("");
-				}	
-			// Pos23
-			if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos23().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos23().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos23().setText("");
-				}	
-			// Pos31
-			if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos31().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos31().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos31().setText("");
-				}	
-			// Pos32
-			if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos32().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos33().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos32().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos32().setText("");
-				}	
-			// Pos33
-			if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x")) {
-				view.getPanelJuego().getPanelTablero().getPos33().setText("X");
-				if (view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
-						&& view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")) {
-					// Se pone la condicion
-					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2));
-					String guardado=jugadascpu[0];
-					view.getDialogos().output("", String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0,2)), JOptionPane.INFORMATION_MESSAGE);
-					if (jugadascpu[0] == guardado) {
-						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
-						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
-						mundo.getTictactoe().turnos();
-						
-					}
-				} else if(!view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x")) {
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos33().setText("");
-					
-				}	
-			 }else if(!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
-					 &&!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")
-					 &&!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("O")){
-					view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo",
-							JOptionPane.ERROR_MESSAGE);
-					view.getPanelJuego().getPanelTablero().getPos33().setText("");
-				}	
-			
-			}contador++;
+		contador++;
 	}
+
 	/**
-	 /**
-	 * @author Luis Ricardo Sanchez
-	 * Este metodo valida el turno 3 y evita todos los errores. 
-	 *  TODO que verifique si es empate, ganar o perder
+	 * @author Luis Ricardo Sanchez Este metodo valida el turno 2 y evita todos los
+	 *         errores. realizar verificacion con randoms y borrar los JOptions de
+	 *         prueba cuando se termine de probar
+	 */
+
+	public void ValidarTurno2() {
+		validarCasillasDisponibles();
+		if (!(c1Enabled || c2Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled)) {
+
+		}
+		if (!(c1Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled)) {
+
+		}
+		if (!(c2Enabled || c6Enabled)) {
+
+		}
+		if (!(c2Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled)) {
+
+		}
+		if (!(c3Enabled || c5Enabled)) {
+
+		}
+		if (!(c3Enabled || c6Enabled)) {
+
+		}
+		if (!(c3Enabled || c7Enabled)) {
+
+		}
+		if (!(c3Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled)) {
+
+		}
+		if (!(c4Enabled || c6Enabled)) {
+
+		}
+		if (!(c4Enabled || c7Enabled)) {
+
+		}
+		if (!(c4Enabled || c8Enabled)) {
+
+		}
+		if (!(c4Enabled || c9Enabled)) {
+
+		}
+		if (!(c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c8Enabled || c9Enabled)) {
+
+		}
+		contador++;
+	}
+
+	/**
+	 * /**
+	 * 
+	 * @author Luis Ricardo Sanchez Este metodo valida el turno 3 y evita todos los
+	 *         errores.
 	 * 
 	 */
 	public void validarTurno3() {
-	}	
+		validarCasillasDisponibles();
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c4Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c6Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c3Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c4Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c2Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c2Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c4Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c3Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c3Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c3Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c4Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c4Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c5Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c5Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c5Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c6Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		contador++;
+	}
+
 	/**
-	 * @author Luis Ricardo Sanchez
-	 * Este metodo valida el turno 4 y evita todos los errores.
-	 * TODO que verifique si es empate, ganar o perder
+	 * @author Luis Ricardo Sanchez Este metodo valida el turno 4 y evita todos los
+	 *         errores.
 	 */
-	public void validarTurnos4() {
-	}	
-	// TODO manejo de excepciones cuando el programa funcione correctamente
-	// TODO Intento de Arreglo del bug del boton si no se puede dejarlo asi
+	public void validarTurno4() {
+		validarCasillasDisponibles();
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c5Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c5Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c5Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c3Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c4Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c2Enabled || c6Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c4Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c3Enabled || c6Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c4Enabled || c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c1Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled || c8Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c5Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c4Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c3Enabled || c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled)) {
+			
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c6Enabled || c7Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c6Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c4Enabled || c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c4Enabled || c6Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c2Enabled || c5Enabled || c6Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		if (!(c3Enabled || c4Enabled || c5Enabled || c7Enabled || c8Enabled || c9Enabled)) {
+			
+		}
+		contador++;
+	}
 
 }
