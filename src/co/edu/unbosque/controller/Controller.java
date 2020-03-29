@@ -212,7 +212,7 @@ public class Controller implements ActionListener {
 	 *         errores. realizar verificacion con randoms y borrar los JOptions de
 	 *         prueba cuando se termine de probar
 	 */
-	public void validarTurno1() {
+	public void validarTurno1() throws Exception{
 
 		if (mundo.getTictactoe().isTurno() == false) {
 			mundo.getTictactoe().turnos();
@@ -232,9 +232,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 1, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -268,9 +266,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 2, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos11().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
@@ -304,9 +300,7 @@ public class Controller implements ActionListener {
 					// TODO Se pone la condicion
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 3, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -339,9 +333,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 4, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos31().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos31().setEditable(false);
@@ -374,9 +366,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 5, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
@@ -409,9 +399,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 6, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
@@ -444,9 +432,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 7, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -479,9 +465,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 8, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos33().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
@@ -514,9 +498,7 @@ public class Controller implements ActionListener {
 
 					jugadascpu[0] = String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0, 2));
 					String guardado = jugadascpu[0];
-					view.getDialogos().output("",
-							String.valueOf(mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0, 2)),
-							JOptionPane.INFORMATION_MESSAGE);
+					mundo.getIa().defender(1, 9, 0, 0, 0).subSequence(0, 2);
 					if (jugadascpu[0] == guardado) {
 						view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 						view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
@@ -546,10 +528,10 @@ public class Controller implements ActionListener {
 	 *         prueba cuando se termine de probar
 	 */
 
-	public void ValidarTurno2() {
+	public void ValidarTurno2() throws Exception{
 		validarCasillasDisponibles();
 		if (!(c1Enabled || c2Enabled)) {
-
+			
 		}
 		if (!(c1Enabled || c3Enabled)) {
 
@@ -666,7 +648,7 @@ public class Controller implements ActionListener {
 	 *         errores.
 	 * 
 	 */
-	public void validarTurno3() {
+	public void validarTurno3() throws Exception{
 		validarCasillasDisponibles();
 		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled)) {
 
@@ -1053,7 +1035,7 @@ public class Controller implements ActionListener {
 	 * @author Luis Ricardo Sanchez Este metodo valida el turno 4 y evita todos los
 	 *         errores.
 	 */
-	public void validarTurno4() {
+	public void validarTurno4() throws Exception{
 		validarCasillasDisponibles();
 		if (!(c1Enabled || c2Enabled || c3Enabled || c4Enabled || c5Enabled || c6Enabled)) {
 
