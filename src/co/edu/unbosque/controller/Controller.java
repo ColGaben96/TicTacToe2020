@@ -1098,8 +1098,11 @@ public class Controller implements ActionListener {
 		
 		int resultado= mundo.getIa().getResultado();
 		if(resultado==1) {
-			mensaje= "!ja,ja te gané humano!";
-		}else {
+			mensaje= "!Ja,ja te gané humano!";
+		}else if(resultado == 0) {
+			mensaje = "Hmm, me ganaste, ¡qué aburrido!";
+		}
+		else {
 			
 			mensaje= "Empate.No pudimos";
 		}
