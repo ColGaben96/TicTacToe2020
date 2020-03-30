@@ -71,7 +71,6 @@ public class IA {
 						gameOver = 1;
 						jugoCpu = 1;
 						juegaCpu2 = verPosicion(k,y);
-					    System.out.println("Juega Cpu 2 link 74: " + juegaCpu2);
 						juegaCpu3 = verPosicion(k,y);
 						juegaCpu4 = verPosicion(k,y);
 						return true;
@@ -99,7 +98,6 @@ public class IA {
 						gameOver = 1;
 						jugoCpu = 1;
 						juegaCpu2 = verPosicion(x,yy);
-						System.out.println("Juega Cpu 2 link 102: " + juegaCpu2);
 						juegaCpu3 = verPosicion(x,yy);
 						juegaCpu4 = verPosicion(x,yy);
 						return true;
@@ -266,10 +264,8 @@ public class IA {
 				}
 				
 			}
-				System.out.println("Estrategia = " + estrategia);
 				if (estrategia == 3) {
 					int decisiones = (int) (Math.random() * 4) + 1;
-					System.out.println("decisiones: " + decisiones );
 					switch (decisiones) {
 					case 1:
 						posicionCpu = 1;
@@ -339,7 +335,6 @@ public class IA {
 							jugada[k][y] = 2;
 							jugoCpu = 1;
 							juegaCpu2 = verPosicion(k,y);
-							System.out.println("Juega Cpu 2 link 342: " + juegaCpu2);
 						} else {
 							triquit = 0;
 						}
@@ -362,7 +357,6 @@ public class IA {
 							jugada[x][yy] = 2;
 							jugoCpu = 1;
 							juegaCpu2 = verPosicion(x,yy);
-							System.out.println("Juega Cpu 2 link 365: " + juegaCpu2);
 						} else {
 							triquit = 0;
 						}
@@ -382,19 +376,16 @@ public class IA {
 						jugada[0][0] = 2;
 						jugoCpu = 1;
 						juegaCpu2 = 1;
-						System.out.println("Juega Cpu 2 link 385: " + juegaCpu2);
 					}
 					if (jugada[1][1] == 0) {
 						jugada[1][1] = 2;
 						jugoCpu = 1;
 						juegaCpu2 = 5;
-						System.out.println("Juega Cpu 2 link 391: " + juegaCpu2);
 					}
 					if (jugada[2][2] == 0) {
 						jugada[2][2] = 2;
 						jugoCpu = 1;
 						juegaCpu2 = 9;
-						System.out.println("Juega Cpu 2 link 397: " + juegaCpu2);
 					}
 				}
 			}
@@ -407,19 +398,16 @@ public class IA {
 						jugada[0][2] = 2;
 						jugoCpu = 1;
 						juegaCpu2 = 3;
-						System.out.println("Juega Cpu 2 link 410: " + juegaCpu2);
 					}
 					if (jugada[1][1] == 0) {
 						jugada[1][1] = 2;
 						jugoCpu = 1;
 						juegaCpu2 = 5;
-						System.out.println("Juega Cpu 2 link 416: " + juegaCpu2);
 					}
 					if (jugada[2][0] == 0) {
 						jugada[2][0] = 2;
 						jugoCpu = 1;
 						juegaCpu2 = 7;
-						System.out.println("Juega Cpu 2 link 422: " + juegaCpu2);
 					}
 				}
 			}
@@ -442,7 +430,6 @@ public class IA {
 								jugada[k][y] = 2;
 								jugoCpu = 1;
 								juegaCpu2 = verPosicion(k,y);
-								System.out.println("Juega Cpu 2 link 445: " + juegaCpu2);
 							} else {
 								triquit = 0;
 							}
@@ -466,7 +453,6 @@ public class IA {
 								jugada[x][yy] = 2;
 								jugoCpu = 1;
 								juegaCpu2 = verPosicion(x,yy);
-								System.out.println("Juega Cpu 2 link 469: " + juegaCpu2);
 							} else {
 								triquit = 0;
 							}
@@ -831,10 +817,7 @@ public class IA {
 			juegaCpu = juegaCpu4;
 			break;
 		}
-        System.out.println("P1 = " + p1 );
-        System.out.println("P2 = " + p2 );
-        System.out.println("cpu1 = " + cpu1 );
-        System.out.println("cpu2 = " + cpu2 );
+   
 		return juegaCpu;
 	}
 
