@@ -648,6 +648,49 @@ public class IA {
 				}
 			}
 
+			
+			triquit = 0;
+			if (jugoCpu == 0) {
+				triquit += jugada[0][0] + jugada[1][1] + jugada[2][2];
+				if (triquit == 2) {
+					if (jugada[0][0] == 0) {
+						jugada[0][0] = 2;
+						jugoCpu = 1;
+						juegaCpu4 = 1;
+					}
+					if (jugada[1][1] == 0) {
+						jugada[1][1] = 2;
+						jugoCpu = 1;
+						juegaCpu4 = 5;
+					}
+					if (jugada[2][2] == 0) {
+						jugada[2][2] = 2;
+						jugoCpu = 1;
+						juegaCpu4 = 9;
+					}
+				}
+			}
+			// Diagonal Izquierda evalua si puede haber triqui
+			if (jugoCpu == 0) {
+				triquit += jugada[0][2] + jugada[1][1] + jugada[2][0];
+				if (triquit == 2) {
+					if (jugada[0][2] == 0) {
+						jugada[0][2] = 2;
+						jugoCpu = 1;
+						juegaCpu4 = 3;
+					}
+					if (jugada[1][1] == 0) {
+						jugada[1][1] = 2;
+						jugoCpu = 1;
+						juegaCpu4 = 5;
+					}
+					if (jugada[2][0] == 0) {
+						jugada[2][0] = 2;
+						jugoCpu = 1;
+						juegaCpu4 = 7;
+					}
+				}
+			}
 			// Los siguentes dos bucles escananea las 3 columnas y las 3 filas
 			// respectivamente, revisando si el jugador pueda hacer triqui en la siguiente
 			// jugada
@@ -699,49 +742,6 @@ public class IA {
 						}
 					}
 				} // fin del ciclo
-
-				triquit = 0;
-				if (jugoCpu == 0) {
-					triquit += jugada[0][0] + jugada[1][1] + jugada[2][2];
-					if (triquit == 2) {
-						if (jugada[0][0] == 0) {
-							jugada[0][0] = 2;
-							jugoCpu = 1;
-							juegaCpu4 = 1;
-						}
-						if (jugada[1][1] == 0) {
-							jugada[1][1] = 2;
-							jugoCpu = 1;
-							juegaCpu4 = 5;
-						}
-						if (jugada[2][2] == 0) {
-							jugada[2][2] = 2;
-							jugoCpu = 1;
-							juegaCpu4 = 9;
-						}
-					}
-				}
-				// Diagonal Izquierda evalua si puede haber triqui
-				if (jugoCpu == 0) {
-					triquit += jugada[0][2] + jugada[1][1] + jugada[2][0];
-					if (triquit == 2) {
-						if (jugada[0][2] == 0) {
-							jugada[0][2] = 2;
-							jugoCpu = 1;
-							juegaCpu4 = 3;
-						}
-						if (jugada[1][1] == 0) {
-							jugada[1][1] = 2;
-							jugoCpu = 1;
-							juegaCpu4 = 5;
-						}
-						if (jugada[2][0] == 0) {
-							jugada[2][0] = 2;
-							jugoCpu = 1;
-							juegaCpu4 = 7;
-						}
-					}
-				}
 
 				// ================ Si no ha jugado la cpu realiza su mejor jugada donde exista
 				// una fila o columna que haya jugado ====================
@@ -931,6 +931,14 @@ public class IA {
 
 	public void setJugoCpu(int jugoCpu) {
 		this.jugoCpu = jugoCpu;
+	}
+
+	public int getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(int resultado) {
+		this.resultado = resultado;
 	}
 
 }

@@ -9,6 +9,7 @@ import java.io.StringWriter;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Mundo;
+import co.edu.unbosque.view.Dialogos;
 import co.edu.unbosque.view.View;
 
 /**
@@ -23,6 +24,7 @@ public class Controller implements ActionListener {
 	private int[] ultimajug = new int[4];
 	private Mundo mundo = new Mundo();
 	private View view = new View();
+	private Dialogos diag = new Dialogos();
 	private boolean c1Enabled, c2Enabled, c3Enabled, c4Enabled, c5Enabled, c6Enabled, c7Enabled, c8Enabled, c9Enabled;
 
 	/**
@@ -1042,13 +1044,22 @@ public class Controller implements ActionListener {
 			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 			view.getPanelJuego().getPanelTablero().getPos33().setText("");
 		}
-
-	
-	 
-	    
+  
 		validarCasillasDisponibles();
 
 		contador++;
+		
+		
+		String mensaje="";
+		int resultado= mundo.getIa().getResultado();
+		if(resultado==1) {
+			
+			mensaje= "!ja,ja te gané humano!";
+		}else {
+			
+			mensaje= "Empate.No pudimos";
+		}
+		diag.output("Game over", mensaje, 1);
 	}
 
 }
