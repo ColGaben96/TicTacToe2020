@@ -236,6 +236,27 @@ public class Controller implements ActionListener {
 		
 		return jugada;
 	}
+	
+	public void reiniciar() {
+		view.getPanelJuego().getPanelTablero().getPos11().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos11().setText("");
+		view.getPanelJuego().getPanelTablero().getPos12().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos12().setText("");
+		view.getPanelJuego().getPanelTablero().getPos13().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos13().setText("");
+		view.getPanelJuego().getPanelTablero().getPos21().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos21().setText("");
+		view.getPanelJuego().getPanelTablero().getPos22().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos22().setText("");
+		view.getPanelJuego().getPanelTablero().getPos23().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos23().setText("");
+		view.getPanelJuego().getPanelTablero().getPos31().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos31().setText("");
+		view.getPanelJuego().getPanelTablero().getPos32().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos32().setText("");
+		view.getPanelJuego().getPanelTablero().getPos33().setEditable(true);
+		view.getPanelJuego().getPanelTablero().getPos33().setText("");
+	}
 	/**
 	 * @author Luis Ricardo Sanchez
 	 * @param ActionEvent e
@@ -1059,6 +1080,7 @@ public class Controller implements ActionListener {
 			mensaje= "Empate.No pudimos";
 		}
 		view.getDialogos().output("Partida Finalizada", mensaje, JOptionPane.INFORMATION_MESSAGE);
+		reiniciar();
 	}
 
 }
