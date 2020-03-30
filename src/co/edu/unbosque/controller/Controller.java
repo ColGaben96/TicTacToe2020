@@ -9,7 +9,6 @@ import java.io.StringWriter;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Mundo;
-import co.edu.unbosque.view.Dialogos;
 import co.edu.unbosque.view.View;
 
 /**
@@ -24,7 +23,7 @@ public class Controller implements ActionListener {
 	private int[] ultimajug = new int[4];
 	private Mundo mundo = new Mundo();
 	private View view = new View();
-	private Dialogos diag = new Dialogos();
+	@SuppressWarnings("unused")
 	private boolean c1Enabled, c2Enabled, c3Enabled, c4Enabled, c5Enabled, c6Enabled, c7Enabled, c8Enabled, c9Enabled;
 
 	/**
@@ -1059,7 +1058,7 @@ public class Controller implements ActionListener {
 			
 			mensaje= "Empate.No pudimos";
 		}
-		diag.output("Game over", mensaje, 1);
+		view.getDialogos().output("Partida Finalizada", mensaje, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }
