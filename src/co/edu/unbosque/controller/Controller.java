@@ -33,7 +33,7 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() throws Exception {
 		
-		Consola();
+		GUI();
 		c1Enabled = true;
 		c2Enabled = true;
 		c3Enabled = true;
@@ -257,6 +257,20 @@ public class Controller implements ActionListener {
 		view.getPanelJuego().getPanelTablero().getPos33().setEditable(true);
 		view.getPanelJuego().getPanelTablero().getPos33().setText("");
 		contador = 0;
+		jugadasjug[0]=0;
+		jugadasjug[1]=0;
+		jugadasjug[2]=0;
+		jugadasjug[3]=0;
+		
+		jugadascpu[0]=0;
+		jugadascpu[1]=0;
+		jugadascpu[2]=0;
+		jugadascpu[3]=0;
+		
+		ultimajug[0]=0;
+		ultimajug[1]=0;
+		ultimajug[2]=0;
+		ultimajug[3]=0;
 	}
 	/**
 	 * @author Luis Ricardo Sanchez
