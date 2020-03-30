@@ -17,6 +17,7 @@ import co.edu.unbosque.view.View;
  *
  */
 public class Controller implements ActionListener {
+	private String mensaje="";
 	private int guardado=0;
 	private int contador = 0;
 	private int[] jugadascpu = new int[4];
@@ -226,6 +227,15 @@ public class Controller implements ActionListener {
 		}
 		
 	
+	}
+	
+	public void gameover() {
+		
+		int resultado= mundo.getIa().getResultado();
+		if(resultado==1) {
+			mensaje= "!ja,ja te gané humano!";
+			diag.output("Game over", mensaje, 1);
+		}
 	}
 	
 	public boolean ultima(int pos) {
@@ -857,6 +867,7 @@ public class Controller implements ActionListener {
 		validarCasillasDisponibles();
 
 		contador++;
+		gameover();
 	}
 
 	/**
@@ -1048,12 +1059,10 @@ public class Controller implements ActionListener {
 		validarCasillasDisponibles();
 
 		contador++;
+	
 		
-		
-		String mensaje="";
 		int resultado= mundo.getIa().getResultado();
 		if(resultado==1) {
-			
 			mensaje= "!ja,ja te gané humano!";
 		}else {
 			
@@ -1061,5 +1070,6 @@ public class Controller implements ActionListener {
 		}
 		diag.output("Game over", mensaje, 1);
 	}
+	
 
 }

@@ -54,6 +54,69 @@ public class IA {
 	 */
 	public boolean estanAtacando() {
 
+		// Diagonal derecha evalua si puede hacer triqui
+		
+		triquit = 0;
+		if (jugoCpu == 0) {
+			triquit = triquit + jugada[0][0] + jugada[1][1] + jugada[2][2];
+			if (triquit == 4) {
+				if (jugada[0][0] == 0) {
+					jugada[0][0] = 2;
+					jugoCpu = 1;
+					resultado = 1;
+					juegaCpu2 = 1;
+					juegaCpu3 = 1;
+					juegaCpu4 = 1;
+				}
+				if (jugada[1][1] == 0) {
+					jugada[1][1] = 2;
+					jugoCpu = 1;
+					resultado = 1;
+					juegaCpu2 = 5;
+					juegaCpu3 = 5;
+					juegaCpu4 = 5;
+				}
+				if (jugada[2][2] == 0) {
+					jugada[2][2] = 2;
+					jugoCpu = 1;
+					resultado = 1;
+					juegaCpu2 = 9;
+					juegaCpu3 = 9;
+					juegaCpu4 = 9;
+				}
+			}
+		}
+		// Diagonal Izquierda evalua si puede hacer triqui
+		triquit = 0;
+		if (jugoCpu == 0) {
+			triquit = triquit + jugada[0][2] + jugada[1][1] + jugada[2][0];
+			if (triquit == 4) {
+				if (jugada[0][2] == 0) {
+					jugada[0][2] = 2;
+					jugoCpu = 1;
+					resultado = 1;
+					juegaCpu2 = 3;
+					juegaCpu3 = 3;
+					juegaCpu4 = 1;
+				}
+				if (jugada[1][1] == 0) {
+					jugada[1][1] = 2;
+					jugoCpu = 1;
+					resultado = 1;
+					juegaCpu2 = 5;
+					juegaCpu3 = 5;
+					juegaCpu4 = 5;
+				}
+				if (jugada[2][0] == 0) {
+					jugada[2][0] = 2;
+					jugoCpu = 1;
+					resultado = 1;
+					juegaCpu2 = 7;
+					juegaCpu3 = 7;
+					juegaCpu4 = 7;
+				}
+			}
+		}
 		int triquit = 0;
 		for (int y = 0; y <= 2; y++) {
 			triquit = 0;
@@ -109,6 +172,9 @@ public class IA {
 			}
 		}
 
+		
+		
+		
 		return false;
 	}
 
@@ -175,9 +241,9 @@ public class IA {
 		}
 
 		// ============================================= La primera jugada 	// =============================================
-		posicion = p1;
+		
 		if (ordenJugada == 1) {
-
+			posicion = p1;
 			for (int i = 0; i <= 2; i++) {
 				for (int j = 0; j <= 2; j++) {
 
@@ -298,9 +364,9 @@ public class IA {
 		 * @ Carlos Manuel Albarracin & Ricardo Sanchez
 		 */
 //	        ============================================= La segunda jugada =============================================
-		posicion = p2;
+		
 		if (ordenJugada == 2) {
-
+			posicion = p2;
 			jugoCpu = 0;
 			triquit = 0;
 
@@ -331,7 +397,7 @@ public class IA {
 
 				if (triquit == 2) {
 					for (int k = 0; k <= 2; k++) {
-						if (jugada[k][y] == 0) {
+						if (jugada[k][y] == 0  && jugoCpu == 0) {
 							jugada[k][y] = 2;
 							jugoCpu = 1;
 							juegaCpu2 = verPosicion(k,y);
@@ -353,7 +419,7 @@ public class IA {
 
 				if (triquit == 2) {
 					for (int yy = 0; yy <= 2; yy++) {
-						if (jugada[x][yy] == 0) {
+						if (jugada[x][yy] == 0  && jugoCpu == 0) {
 							jugada[x][yy] = 2;
 							jugoCpu = 1;
 							juegaCpu2 = verPosicion(x,yy);
@@ -466,9 +532,9 @@ public class IA {
 		}
 
 //        ============================================= La tercera jugada =============================================
-		posicion = p3;
+		
 		if (ordenJugada == 3) {
-
+			posicion = p3;
 			jugoCpu = 0;
 
 			for (int i = 0; i <= 2; i++) {
@@ -480,9 +546,53 @@ public class IA {
 
 				}
 			}
-
-			jugoCpu = 0;
 			estanAtacando();
+			// Diagonal derecha evalua si puede haber triqui
+
+						triquit = 0;
+						if (jugoCpu == 0) {
+							triquit = triquit + jugada[0][0] + jugada[1][1] + jugada[2][2];
+							if (triquit == 2) {
+								if (jugada[0][0] == 0) {
+									jugada[0][0] = 2;
+									jugoCpu = 1;
+									juegaCpu3 = 1;
+								}
+								if (jugada[1][1] == 0) {
+									jugada[1][1] = 2;
+									jugoCpu = 1;
+									juegaCpu3 = 5;
+								}
+								if (jugada[2][2] == 0) {
+									jugada[2][2] = 2;
+									jugoCpu = 1;
+									juegaCpu3 = 9;
+								}
+							}
+						}
+						// Diagonal Izquierda evalua si puede haber triqui
+						triquit = 0;
+						if (jugoCpu == 0) {
+							triquit = triquit + jugada[0][2] + jugada[1][1] + jugada[2][0];
+							if (triquit == 2) {
+								if (jugada[0][2] == 0) {
+									jugada[0][2] = 2;
+									jugoCpu = 1;
+									juegaCpu3 = 3;
+								}
+								if (jugada[1][1] == 0) {
+									jugada[1][1] = 2;
+									jugoCpu = 1;
+									juegaCpu3 = 5;
+								}
+								if (jugada[2][0] == 0) {
+									jugada[2][0] = 2;
+									jugoCpu = 1;
+									juegaCpu3 = 7;
+								}
+							}
+						}
+			
 
 			// Los siguentes dos bucles escananea las 3 columnas y las 3 filas
 			// respectivamente, revisando si el jugador pueda hacer triqui en la siguiente
@@ -535,51 +645,6 @@ public class IA {
 				}
 			} // fin del ciclo
 
-			// Diagonal derecha evalua si puede haber triqui
-
-			triquit = 0;
-			if (jugoCpu == 0) {
-				triquit = triquit + jugada[0][0] + jugada[1][1] + jugada[2][2];
-				if (triquit == 2) {
-					if (jugada[0][0] == 0) {
-						jugada[0][0] = 2;
-						jugoCpu = 1;
-						juegaCpu3 = 1;
-					}
-					if (jugada[1][1] == 0) {
-						jugada[1][1] = 2;
-						jugoCpu = 1;
-						juegaCpu3 = 5;
-					}
-					if (jugada[2][2] == 0) {
-						jugada[2][2] = 2;
-						jugoCpu = 1;
-						juegaCpu3 = 9;
-					}
-				}
-			}
-			// Diagonal Izquierda evalua si puede haber triqui
-			triquit = 0;
-			if (jugoCpu == 0) {
-				triquit = triquit + jugada[0][2] + jugada[1][1] + jugada[2][0];
-				if (triquit == 2) {
-					if (jugada[0][2] == 0) {
-						jugada[0][2] = 2;
-						jugoCpu = 1;
-						juegaCpu3 = 3;
-					}
-					if (jugada[1][1] == 0) {
-						jugada[1][1] = 2;
-						jugoCpu = 1;
-						juegaCpu3 = 5;
-					}
-					if (jugada[2][0] == 0) {
-						jugada[2][0] = 2;
-						jugoCpu = 1;
-						juegaCpu3 = 7;
-					}
-				}
-			}
 
 			// ================ Si no ha jugado la cpu realiza su mejor jugada donde exista
 			// una fila o columna que haya jugado ====================
@@ -630,14 +695,13 @@ public class IA {
 					}
 				}
 			} // fin jugada cpu
-
 			estanAtacando();
 		}
 
 //         ============================================= La cuarta jugada =============================================
 		posicion = p4;
 		if (ordenJugada == 4) {
-
+			jugoCpu = 0; // Si es cero la cpu no ha jugado
 			for (int i = 0; i <= 2; i++) {
 				for (int j = 0; j <= 2; j++) {
 
@@ -648,6 +712,7 @@ public class IA {
 				}
 			}
 
+			estanAtacando();
 			
 			triquit = 0;
 			if (jugoCpu == 0) {
@@ -699,8 +764,7 @@ public class IA {
 			// cuando juega la cpu se almacena dos en la matriz jugada.
 
 			if (gameOver == 0) {
-				jugoCpu = 0; // Si es cero la cpu no ha jugado
-
+				
 				for (int y = 0; y <= 2; y++) {
 					triquit = 0;
 					for (int x = 0; x <= 2; x++) {
@@ -796,12 +860,7 @@ public class IA {
 
 			}
 		} // fin de cuarta jugada
-		for (int i = 0; i <= 2; i++) {
-			for (int j = 0; j <= 2; j++) {
-
-			}
-		}
-
+		
 		switch (ordenJugada) {
 
 		case 1:
