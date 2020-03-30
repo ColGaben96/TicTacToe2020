@@ -233,7 +233,7 @@ public class Controller implements ActionListener {
 		int resultado= mundo.getIa().getResultado();
 		if(resultado==1) {
 			mensaje= "!ja,ja te gané humano!";
-			diag.output("Game over", mensaje, 1);
+			view.getDialogos().output("Game over", mensaje, 1);
 		}
 	}
 	
