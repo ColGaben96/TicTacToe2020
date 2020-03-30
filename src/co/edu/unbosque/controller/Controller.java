@@ -256,6 +256,7 @@ public class Controller implements ActionListener {
 		view.getPanelJuego().getPanelTablero().getPos32().setText("");
 		view.getPanelJuego().getPanelTablero().getPos33().setEditable(true);
 		view.getPanelJuego().getPanelTablero().getPos33().setText("");
+		contador = 0;
 	}
 	/**
 	 * @author Luis Ricardo Sanchez
