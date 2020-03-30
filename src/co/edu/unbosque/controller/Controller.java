@@ -20,6 +20,7 @@ public class Controller implements ActionListener {
 	private int contador = 0;
 	private int[] jugadascpu = new int[4];
 	private int[] jugadasjug = new int[4];
+	private int[] ultimajug = new int[4];
 	private Mundo mundo = new Mundo();
 	private View view = new View();
 	private boolean c1Enabled, c2Enabled, c3Enabled, c4Enabled, c5Enabled, c6Enabled, c7Enabled, c8Enabled, c9Enabled;
@@ -51,6 +52,12 @@ public class Controller implements ActionListener {
 		jugadascpu[1]=0;
 		jugadascpu[2]=0;
 		jugadascpu[3]=0;
+		
+		ultimajug[0]=0;
+		ultimajug[1]=0;
+		ultimajug[2]=0;
+		ultimajug[3]=0;
+		
 		
 	}
 
@@ -228,6 +235,16 @@ public class Controller implements ActionListener {
 	
 	}
 	
+	public boolean ultima(int pos) {
+		boolean jugada=true;
+		
+		for(int i=0 ; i<=3 ; i++) {
+			if(ultimajug[i] == pos) {jugada=false;}
+		}
+		
+		return jugada;
+	}
+	
 	public void imprimirResultados() {
 		for(int i=0 ; i<=3 ; i++) {
 			System.out.println(" Jugador " + i + " = " + jugadasjug[i]  + " Jugada CPU="+i+" = " + jugadascpu[i] );
@@ -240,6 +257,8 @@ public class Controller implements ActionListener {
 	 * @param ActionEvent e
 	 */
 	@Override
+	
+
 	public void actionPerformed(ActionEvent e) {
 		try {
 			// TODO: Ingresar aqu� las interacciones con Mundo
@@ -311,6 +330,7 @@ public class Controller implements ActionListener {
 			    guardado = jugadascpu[0];
 				
 			        jugarCelda(guardado);
+			        ultimajug[0]=1;
 					mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
@@ -329,6 +349,7 @@ public class Controller implements ActionListener {
 					guardado = jugadascpu[0];
 				
 						jugarCelda(guardado);
+						 ultimajug[0]=2;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
@@ -346,6 +367,7 @@ public class Controller implements ActionListener {
 				    guardado = jugadascpu[0];
 				
 				        jugarCelda(guardado);
+				        ultimajug[0]=3;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
@@ -363,6 +385,7 @@ public class Controller implements ActionListener {
 					guardado = jugadascpu[0];
 					
 						jugarCelda(guardado);
+						 ultimajug[0]=4;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
@@ -380,6 +403,7 @@ public class Controller implements ActionListener {
 					guardado = jugadascpu[0];
 			
 						jugarCelda(guardado);
+						 ultimajug[0]=5;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
@@ -396,6 +420,7 @@ public class Controller implements ActionListener {
 					guardado = jugadascpu[0];
 				
 						jugarCelda(guardado);
+						 ultimajug[0]=6;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
@@ -413,6 +438,7 @@ public class Controller implements ActionListener {
 				    guardado = jugadascpu[0];
 					
 				        jugarCelda(guardado);
+				        ultimajug[0]=7;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
@@ -429,6 +455,7 @@ public class Controller implements ActionListener {
 					guardado = jugadascpu[0];
 
 						jugarCelda(guardado);
+						 ultimajug[0]=8;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
@@ -446,6 +473,7 @@ public class Controller implements ActionListener {
 				    guardado = jugadascpu[0];
 	
 				        jugarCelda(guardado);
+				        ultimajug[0]=9;
 						mundo.getTictactoe().turnos();
 
 			} else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
@@ -479,20 +507,20 @@ public class Controller implements ActionListener {
 		}
        */
 		    
-		if (mundo.getTictactoe().isTurno() == false) {
+		if (mundo.getTictactoe().isTurno() == false) { 
 			mundo.getTictactoe().turnos();
 			boolean jugadaRealizada=false;
 			
 			// Pos11
 			   jugadasjug[1]=0;
-			if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(1)) {
 				view.getPanelJuego().getPanelTablero().getPos11().setText("X");
 				jugadasjug[1] = 1;
 				
 
 				jugadascpu[1] = mundo.getIa().defender(2, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0], 0, 0);
 			    guardado = jugadascpu[1];
-			
+			    
 			        jugarCelda(guardado);
 			        jugadaRealizada=true;
 					//mundo.getTictactoe().turnos();
@@ -505,7 +533,7 @@ public class Controller implements ActionListener {
 
 			}*/
 			// Pos12
-			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(2)) {
 				view.getPanelJuego().getPanelTablero().getPos12().setText("X");
 				
 				    jugadasjug[1]=2;
@@ -523,7 +551,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos12().setText("");
 			}*/
 			// Pos13
-			if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(3)) {
 				view.getPanelJuego().getPanelTablero().getPos13().setText("X");
 				    jugadasjug[1]=3;
 					// TODO Se pone la condicion
@@ -541,7 +569,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos13().setText("");
 			}*/
 			// Pos21
-			if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(4)) {
 				view.getPanelJuego().getPanelTablero().getPos21().setText("X");
 				
                     jugadasjug[1]=4;
@@ -559,7 +587,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos21().setText("");
 			}*/
 			// Pos22
-			if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(5)) {
 				view.getPanelJuego().getPanelTablero().getPos22().setText("X");
 				
 				    jugadasjug[1]=5;
@@ -578,7 +606,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos22().setText("");
 			}*/
 			// Pos23
-			if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(6)) {
 				view.getPanelJuego().getPanelTablero().getPos23().setText("X");
 				    jugadasjug[1]=6;
 					jugadascpu[1] = mundo.getIa().defender(2, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0], 0, 0);
@@ -595,7 +623,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos23().setText("");
 			}*/
 			// Pos31
-			if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(7)) {
 				view.getPanelJuego().getPanelTablero().getPos31().setText("X");
 				
 			     	jugadasjug[1]=7;
@@ -613,7 +641,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos31().setText("");
 			}*/
 			// Pos32
-			if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(8)) {
 				view.getPanelJuego().getPanelTablero().getPos32().setText("X");
 				    jugadasjug[1]=8;
 					jugadascpu[1] = mundo.getIa().defender(2, jugadasjug[0],8, jugadasjug[2], jugadasjug[3], jugadascpu[0], 0, 0);
@@ -630,7 +658,7 @@ public class Controller implements ActionListener {
 				view.getPanelJuego().getPanelTablero().getPos32().setText("");
 			}*/
 			// Pos33
-			if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x") && jugadaRealizada==false) {
+			if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(9)) {
 				view.getPanelJuego().getPanelTablero().getPos33().setText("X");
 				
 				    jugadasjug[1]=9;
