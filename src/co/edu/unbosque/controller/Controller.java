@@ -186,47 +186,38 @@ public class Controller implements ActionListener {
 		case 1:
 			view.getPanelJuego().getPanelTablero().getPos11().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos11().setEditable(false);
-			System.out.println("Entro campo 1: " + celda);
 			break;
 		case 2:
 			view.getPanelJuego().getPanelTablero().getPos12().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos12().setEditable(false);
-			System.out.println("Entro campo 2: " + celda);
 			break;
 		case 3:
 			view.getPanelJuego().getPanelTablero().getPos13().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos13().setEditable(false);
-			System.out.println("Entro campo 3: " + celda);
 			break;
 		case 4:
 			view.getPanelJuego().getPanelTablero().getPos21().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos21().setEditable(false);
-			System.out.println("Entro campo 4: " + celda);
 			break;
 		case 5:
 			view.getPanelJuego().getPanelTablero().getPos22().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos22().setEditable(false);
-			System.out.println("Entro campo 5: " + celda);
 			break;
 		case 6:
 			view.getPanelJuego().getPanelTablero().getPos23().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos23().setEditable(false);
-			System.out.println("Entro campo 6: " + celda);
 			break;
 		case 7:
 			view.getPanelJuego().getPanelTablero().getPos31().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos31().setEditable(false);
-			System.out.println("Entro campo 7: " + celda);
 			break;
 		case 8:
 			view.getPanelJuego().getPanelTablero().getPos32().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos32().setEditable(false);
-			System.out.println("Entro campo 8: " + celda);
 			break;
 		case 9:
 			view.getPanelJuego().getPanelTablero().getPos33().setText("O");
 			view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
-			System.out.println("Entro campo 9: " + celda);
 			break;
 		default:
 			break;
@@ -244,14 +235,6 @@ public class Controller implements ActionListener {
 		
 		return jugada;
 	}
-	
-	public void imprimirResultados() {
-		for(int i=0 ; i<=3 ; i++) {
-			System.out.println(" Jugador " + i + " = " + jugadasjug[i]  + " Jugada CPU="+i+" = " + jugadascpu[i] );
-			
-		}
-	}
-
 	/**
 	 * @author Luis Ricardo Sanchez
 	 * @param ActionEvent e
@@ -261,25 +244,19 @@ public class Controller implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		try {
-			// TODO: Ingresar aqu� las interacciones con Mundo
-			// System.out.println("Contador antes del if = " + contador);
 			if (e.getActionCommand() == view.getPanelJuego().getPanelBoton().OPERAR) {
 
 				switch (contador) {
 				case 0:
-					System.out.println("Contador en opcion cero = " + contador);
 					validarTurno1();
 					break;
 				case 1:
-					System.out.println("Contador en opcion uno = " + contador);
 					ValidarTurno2();
 					break;
 				case 2:
-					System.out.println("Contador en opcion dos = " + contador);
 					validarTurno3();
 					break;
 				case 3:
-					System.out.println("Contador en opcion tres = " + contador);
 					validarTurno4();
 					break;
 				}
@@ -494,19 +471,7 @@ public class Controller implements ActionListener {
 	 */
 
 	public void ValidarTurno2() throws Exception {
-        /*
-		jugadascpu[1] = mundo.getIa().defender(2, 1, 3, 0, 0, 5, 0, 0);
-		int guardado = jugadascpu[1];
-		mundo.getIa().defender(2, 1, 3, 0, 0, 5, 0, 0);
-		System.out.println("Entr� al turno dos defender = " + jugadascpu[1]);
-		if (jugadascpu[1] == guardado) {
-			view.getPanelJuego().getPanelTablero().getPos12().setText("O");
-			view.getPanelJuego().getPanelTablero().getPos12().setEditable(false);
-			mundo.getTictactoe().turnos();
-
-		}
-       */
-		    
+           
 		if (mundo.getTictactoe().isTurno() == false) { 
 			mundo.getTictactoe().turnos();
 			boolean jugadaRealizada=false;
@@ -523,15 +488,16 @@ public class Controller implements ActionListener {
 			    
 			        jugarCelda(guardado);
 			        jugadaRealizada=true;
+			        ultimajug[1]=1;
 					//mundo.getTictactoe().turnos();
 
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos11().setText("");
 
-			}*/
+			}
 			// Pos12
 			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(2)) {
 				view.getPanelJuego().getPanelTablero().getPos12().setText("X");
@@ -542,14 +508,15 @@ public class Controller implements ActionListener {
 					
 						jugarCelda(guardado);
 						 jugadaRealizada=true;
+						 ultimajug[1]=2;
 						//mundo.getTictactoe().turnos();
 
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
+			}else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos12().setText("");
-			}*/
+			}
 			// Pos13
 			if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(3)) {
 				view.getPanelJuego().getPanelTablero().getPos13().setText("X");
@@ -560,14 +527,15 @@ public class Controller implements ActionListener {
 					
 				        jugarCelda(guardado);
 				        jugadaRealizada=true;
+				        ultimajug[1]=3;
 						//mundo.getTictactoe().turnos();
 
-			} /*else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos13().setText("");
-			}*/
+			}
 			// Pos21
 			if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(4)) {
 				view.getPanelJuego().getPanelTablero().getPos21().setText("X");
@@ -578,14 +546,15 @@ public class Controller implements ActionListener {
 					
 						jugarCelda(guardado);
 						 jugadaRealizada=true;
+						 ultimajug[1]=4;
 						//mundo.getTictactoe().turnos();
 
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos21().setText("");
-			}*/
+			}
 			// Pos22
 			if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(5)) {
 				view.getPanelJuego().getPanelTablero().getPos22().setText("X");
@@ -594,17 +563,17 @@ public class Controller implements ActionListener {
 					jugadascpu[1] = mundo.getIa().defender(2, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0], 0, 0);
 					guardado = jugadascpu[1];
 					
-					//System.out.println("Jugador j1 = " + jugadasjug[0] + " Jugador j2 = " + jugadasjug[1] + " Jugadacpu1 = " + jugadascpu[0] + " Jugadacpu2 = " + jugadascpu[1]);
 						jugarCelda(guardado);
-						 jugadaRealizada=true;
-						//mundo.getTictactoe().turnos();
+						jugadaRealizada=true;
+						 ultimajug[1]=5;
+						mundo.getTictactoe().turnos();
                  
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos22().setText("");
-			}*/
+			}
 			// Pos23
 			if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(6)) {
 				view.getPanelJuego().getPanelTablero().getPos23().setText("X");
@@ -614,14 +583,15 @@ public class Controller implements ActionListener {
 					
 				      jugarCelda(guardado);
 				      jugadaRealizada=true;
+				      ultimajug[1]=6;
 					 // mundo.getTictactoe().turnos();
 
-			} /*else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
+			}else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos23().setText("");
-			}*/
+			}
 			// Pos31
 			if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(7)) {
 				view.getPanelJuego().getPanelTablero().getPos31().setText("X");
@@ -632,31 +602,33 @@ public class Controller implements ActionListener {
 					
 				        jugarCelda(guardado);
 				        jugadaRealizada=true;
+				        ultimajug[1]=7;
 						//mundo.getTictactoe().turnos();
 
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos31().setText("");
-			}*/
+			}
 			// Pos32
 			if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(8)) {
 				view.getPanelJuego().getPanelTablero().getPos32().setText("X");
 				    jugadasjug[1]=8;
-					jugadascpu[1] = mundo.getIa().defender(2, jugadasjug[0],8, jugadasjug[2], jugadasjug[3], jugadascpu[0], 0, 0);
+					jugadascpu[1] = mundo.getIa().defender(2, jugadasjug[0],jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0], 0, 0);
 					guardado = jugadascpu[1];
 					
 						jugarCelda(guardado);
 						 jugadaRealizada=true;
+						 ultimajug[1]=8;
 						//mundo.getTictactoe().turnos();
 
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos32().setText("");
-			}*/
+			}
 			// Pos33
 			if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(9)) {
 				view.getPanelJuego().getPanelTablero().getPos33().setText("X");
@@ -667,18 +639,19 @@ public class Controller implements ActionListener {
 				 
 				       jugarCelda(guardado);
 				       jugadaRealizada=true;
+				       ultimajug[1]=9;
 					//	mundo.getTictactoe().turnos();
               
-			}/* else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
+			} else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
 					&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")
 					&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("O")) {
 				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
 				view.getPanelJuego().getPanelTablero().getPos33().setText("");
-			}*/
+			}
 
 		}
 		 
-		imprimirResultados();
+		//imprimirResultados();
 		validarCasillasDisponibles();
 
 		contador++;
@@ -692,18 +665,193 @@ public class Controller implements ActionListener {
 	 * 
 	 */
 	public void validarTurno3() throws Exception {
-       /*
-		jugadascpu[2] = mundo.getIa().defender(3, 1, 3, 8, 0, 5, 2, 0);
-		int guardado = jugadascpu[2];
-		mundo.getIa().defender(3, 1, 3, 8, 0, 5, 2, 0);
-		System.out.println("Entr� al turno dos defender = " + jugadascpu[1]);
-		if (jugadascpu[2] == guardado) {
-			view.getPanelJuego().getPanelTablero().getPos21().setText("O");
-			view.getPanelJuego().getPanelTablero().getPos21().setEditable(false);
+		
 			mundo.getTictactoe().turnos();
+			boolean jugadaRealizada=false;
+			// Pos11
+			   jugadasjug[2]=0;
+			if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(1)) {
+				view.getPanelJuego().getPanelTablero().getPos11().setText("X");
+				jugadasjug[2] = 1;
+				
 
-		}
-*/
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+			    
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=1;
+					mundo.getTictactoe().turnos();
+
+			} else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos11().setText("");
+
+			}
+			
+			// Pos12
+			if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(2)) {
+				view.getPanelJuego().getPanelTablero().getPos12().setText("X");
+                 jugadasjug[2] = 2;
+				
+				 jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			      guardado = jugadascpu[2];
+			    
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=2;
+					mundo.getTictactoe().turnos();
+
+			}else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos12().setText("");
+			}
+			
+			// Pos13
+			if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(3)) {
+				view.getPanelJuego().getPanelTablero().getPos13().setText("X");
+				    jugadasjug[2]=3;
+					// TODO Se pone la condicion
+					jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+				    guardado = jugadascpu[2];
+					
+				        jugarCelda(guardado);
+				        jugadaRealizada=true;
+				        ultimajug[2]=3;
+						mundo.getTictactoe().turnos();
+
+			} else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos13().setText("");
+			}
+			
+			// Pos21
+			if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(4)) {
+				view.getPanelJuego().getPanelTablero().getPos21().setText("X");
+				
+				jugadasjug[2]=4;
+				// TODO Se pone la condicion
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+				
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=4;
+				   mundo.getTictactoe().turnos();
+
+			} else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos21().setText("");
+			}
+		
+			// Pos22
+			if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(5)) {
+				view.getPanelJuego().getPanelTablero().getPos22().setText("X");
+				
+				jugadasjug[2]=5;
+				// TODO Se pone la condicion
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+				
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=5;
+				    mundo.getTictactoe().turnos();
+                 
+			} else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos22().setText("");
+			}
+			
+			// Pos23
+			if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(6)) {
+				view.getPanelJuego().getPanelTablero().getPos23().setText("X");
+				jugadasjug[2]=6;
+				// TODO Se pone la condicion
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+				
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=6;
+					 mundo.getTictactoe().turnos();
+
+			}else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos23().setText("");
+			}
+		
+			// Pos31
+			if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")  && ultima(7)) {
+				view.getPanelJuego().getPanelTablero().getPos31().setText("X");
+				jugadasjug[2]=7;
+				// TODO Se pone la condicion
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+				
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=7;
+					mundo.getTictactoe().turnos();
+
+			} else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos31().setText("");
+			}
+			// Pos32
+			if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(8)) {
+				view.getPanelJuego().getPanelTablero().getPos32().setText("X");
+				jugadasjug[2]=8;
+				// TODO Se pone la condicion
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+				
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=8;
+					mundo.getTictactoe().turnos();
+
+			} else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos32().setText("");
+			}
+			// Pos33
+			if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(9)) {
+				view.getPanelJuego().getPanelTablero().getPos33().setText("X");
+				
+				jugadasjug[2]=9;
+				// TODO Se pone la condicion
+				jugadascpu[2] = mundo.getIa().defender(3, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], 0);
+			    guardado = jugadascpu[2];
+				
+			        jugarCelda(guardado);
+			        jugadaRealizada=true;
+			        ultimajug[2]=9;
+					mundo.getTictactoe().turnos();
+              
+			} else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
+					&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")
+					&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("O")) {
+				view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+				view.getPanelJuego().getPanelTablero().getPos33().setText("");
+			}
+
 		validarCasillasDisponibles();
 
 		contador++;
@@ -714,18 +862,190 @@ public class Controller implements ActionListener {
 	 *         errores.
 	 */
 	public void validarTurno4() throws Exception {
-		/*
-		jugadascpu[3] = mundo.getIa().defender(4, 1, 3, 8, 6, 5, 2, 4);
-		int guardado = jugadascpu[3];
-		mundo.getIa().defender(4, 1, 3, 8, 6, 5, 2, 4);
-		System.out.println("Entr� al turno dos defender = " + jugadascpu[3]);
-		if (jugadascpu[3] == guardado) {
-			view.getPanelJuego().getPanelTablero().getPos33().setText("O");
-			view.getPanelJuego().getPanelTablero().getPos33().setEditable(false);
-			mundo.getTictactoe().turnos();
+		
+		mundo.getTictactoe().turnos();
+		boolean jugadaRealizada=false;
+		// Pos11
+		   jugadasjug[3]=0;
+		if (view.getPanelJuego().getPanelTablero().getPos11().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(1)) {
+			view.getPanelJuego().getPanelTablero().getPos11().setText("X");
+			jugadasjug[3] = 1;
+			
+
+			jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		    guardado = jugadascpu[3];
+		    
+		        jugarCelda(guardado);
+		        jugadaRealizada=true;
+		        ultimajug[3]=1;
+				mundo.getTictactoe().turnos();
+
+		} else if (!view.getPanelJuego().getPanelTablero().getPos11().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos11().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos11().setText("");
 
 		}
-		*/
+		// Pos12
+		if (view.getPanelJuego().getPanelTablero().getPos12().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(2)) {
+			view.getPanelJuego().getPanelTablero().getPos12().setText("X");
+             jugadasjug[3] = 2;
+			
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		        jugarCelda(guardado);
+		        jugadaRealizada=true;
+		        ultimajug[3]=2;
+				mundo.getTictactoe().turnos();
+
+		}else if (!view.getPanelJuego().getPanelTablero().getPos12().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos12().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos12().setText("");
+		}
+		// Pos13
+		if (view.getPanelJuego().getPanelTablero().getPos13().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(3)) {
+			view.getPanelJuego().getPanelTablero().getPos13().setText("X");
+			 jugadasjug[3] = 3;
+				
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=3;
+				  mundo.getTictactoe().turnos();
+
+		} else if (!view.getPanelJuego().getPanelTablero().getPos13().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos13().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos13().setText("");
+		}
+		// Pos21
+		if (view.getPanelJuego().getPanelTablero().getPos21().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(4)) {
+			view.getPanelJuego().getPanelTablero().getPos21().setText("X");
+			
+			jugadasjug[3] = 4;
+			
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=4;
+			      mundo.getTictactoe().turnos();
+
+		} else if (!view.getPanelJuego().getPanelTablero().getPos21().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos21().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos21().setText("");
+		}
+		// Pos22
+		if (view.getPanelJuego().getPanelTablero().getPos22().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(5)) {
+			view.getPanelJuego().getPanelTablero().getPos22().setText("X");
+			             
+			jugadasjug[3] = 5;
+			
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=5;
+			    mundo.getTictactoe().turnos();
+             
+		} else if (!view.getPanelJuego().getPanelTablero().getPos22().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos22().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos22().setText("");
+		}
+		// Pos23
+		if (view.getPanelJuego().getPanelTablero().getPos23().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(6)) {
+			view.getPanelJuego().getPanelTablero().getPos23().setText("X");
+			jugadasjug[3] = 6;
+			
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=6;
+				 mundo.getTictactoe().turnos();
+
+		}else if (!view.getPanelJuego().getPanelTablero().getPos23().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos23().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos23().setText("");
+		}
+		// Pos31
+		if (view.getPanelJuego().getPanelTablero().getPos31().getText().equalsIgnoreCase("x")  && ultima(7)) {
+			view.getPanelJuego().getPanelTablero().getPos31().setText("X");
+			jugadasjug[3] = 7;
+			
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=7;
+				mundo.getTictactoe().turnos();
+
+		} else if (!view.getPanelJuego().getPanelTablero().getPos31().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos31().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos31().setText("");
+		}
+		// Pos32
+		if (view.getPanelJuego().getPanelTablero().getPos32().getText().equalsIgnoreCase("x") && jugadaRealizada==false  && ultima(8)) {
+			view.getPanelJuego().getPanelTablero().getPos32().setText("X");
+			jugadasjug[3] = 8;
+			
+			 jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		     guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=8;
+				mundo.getTictactoe().turnos();
+
+		} else if (!view.getPanelJuego().getPanelTablero().getPos32().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos32().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos32().setText("");
+		}
+		// Pos33
+		if (view.getPanelJuego().getPanelTablero().getPos33().getText().equalsIgnoreCase("x") && jugadaRealizada==false && ultima(9)) {
+			view.getPanelJuego().getPanelTablero().getPos33().setText("X");
+			
+			    jugadasjug[3] = 9;
+			
+			    jugadascpu[3] = mundo.getIa().defender(4, jugadasjug[0], jugadasjug[1], jugadasjug[2], jugadasjug[3], jugadascpu[0],jugadascpu[1], jugadascpu[2]);
+		        guardado = jugadascpu[3];
+		    
+		          jugarCelda(guardado);
+		          jugadaRealizada=true;
+		          ultimajug[3]=9;
+				mundo.getTictactoe().turnos();
+          
+		} else if (!view.getPanelJuego().getPanelTablero().getPos33().getText().equals("X")
+				&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("")
+				&& !view.getPanelJuego().getPanelTablero().getPos33().getText().equals("O")) {
+			view.getDialogos().output("Error", "Debes colocar una X para jugar conmigo", JOptionPane.ERROR_MESSAGE);
+			view.getPanelJuego().getPanelTablero().getPos33().setText("");
+		}
+
+	
+	 
+	    
 		validarCasillasDisponibles();
 
 		contador++;
