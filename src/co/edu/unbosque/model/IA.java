@@ -139,6 +139,7 @@ public class IA {
 						return true;
 					} else {
 						triquit = 0;
+						resultado = 2;
 					}
 
 				}

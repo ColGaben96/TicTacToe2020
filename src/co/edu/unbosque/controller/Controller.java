@@ -1109,6 +1109,5 @@ public class Controller implements ActionListener {
 		view.getDialogos().output("Partida Finalizada", mensaje, JOptionPane.INFORMATION_MESSAGE);
 		reiniciar();
 	}
-	
 
 }
